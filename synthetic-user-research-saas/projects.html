@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Synthetic User Research SaaS</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#1e40af',
+                        secondary: '#dbeafe',
+                        accent: '#10b981',
+                        gray: {
+                            50: '#f9fafb',
+                            100: '#f3f4f6',
+                            200: '#e5e7eb',
+                            300: '#d1d5db',
+                            400: '#9ca3af',
+                            500: '#6b7280',
+                            600: '#4b5563',
+                            700: '#374151',
+                            800: '#1f2937',
+                            900: '#111827',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex">
+                    <div class="flex-shrink-0 flex items-center">
+                        <h1 class="text-xl font-bold text-blue-800">Synthetic Research</h1>
+                    </div>
+                    <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                        <a href="index.html" class="text-gray-700 hover:text-blue-800 font-medium transition duration-300 ease-in-out border-transparent border-b-2 py-2 px-1">Home</a>
+                        <a href="dashboard.html" class="text-gray-700 hover:text-blue-800 font-medium transition duration-300 ease-in-out border-transparent border-b-2 py-2 px-1">Dashboard</a>
+                        <a href="projects.html" class="text-blue-800 font-semibold border-b-2 border-blue-800 py-2 px-1">Projects</a>
+                        <a href="reports.html" class="text-gray-700 hover:text-blue-800 font-medium transition duration-300 ease-in-out border-transparent border-b-2 py-2 px-1">Reports</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <h1 class="text-3xl font-bold text-gray-900">Projects</h1>
+                <button id="createProjectBtn" class="bg-blue-800 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out">Create New Project</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+        <!-- Projects Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
+            <!-- Project 1 -->
+            <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+                <img src="project1.png" alt="User Interview Project" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Mobile App User Interviews</h3>
+                <p class="text-sm text-gray-600 mb-2">Status: <span class="text-accent font-medium">Active</span></p>
+                <p class="text-sm text-gray-600">Last Updated: 2 days ago</p>
+            </div>
+            <!-- Project 2 -->
+            <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+                <img src="project2.png" alt="Survey Project" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Customer Satisfaction Survey</h3>
+                <p class="text-sm text-gray-600 mb-2">Status: <span class="text-gray-500 font-medium">Completed</span></p>
+                <p class="text-sm text-gray-600">Last Updated: 1 week ago</p>
+            </div>
+            <!-- Project 3 -->
+            <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+                <img src="project3.png" alt="Usability Test Project" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Website Usability Testing</h3>
+                <p class="text-sm text-gray-600 mb-2">Status: <span class="text-accent font-medium">Active</span></p>
+                <p class="text-sm text-gray-600">Last Updated: 3 days ago</p>
+            </div>
+            <!-- Project 4 -->
+            <div class="bg-white rounded-lg shadow-md p-6 border border-gray-200">
+                <img src="project4.png" alt="Analytics Project" class="w-full h-48 object-cover rounded-lg mb-4">
+                <h3 class="text-lg font-semibold text-gray-900 mb-2">Product Analytics Review</h3>
+                <p class="text-sm text-gray-600 mb-2">Status: <span class="text-gray-500 font-medium">Completed</span></p>
+                <p class="text-sm text-gray-600">Last Updated: 5 days ago</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Create Project Modal -->
+    <div id="createProjectModal" class="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full hidden" role="dialog">
+        <div class="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+            <div class="mt-3">
+                <h3 class="text-lg font-medium text-gray-900 mb-4">Create New Project</h3>
+                <form id="createProjectForm">
+                    <div class="mb-4">
+                        <label for="projectName" class="block text-sm font-medium text-gray-700 mb-2">Project Name</label>
+                        <input type="text" id="projectName" name="projectName" class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full" required>
+                    </div>
+                    <div class="mb-4">
+                        <label for="projectDescription" class="block text-sm font-medium text-gray-700 mb-2">Description</label>
+                        <textarea id="projectDescription" name="projectDescription" rows="4" class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none w-full" required></textarea>
+                    </div>
+                    <div class="mb-4">
+                        <label for="userPersonas" class="block text-sm font-medium text-gray-700 mb-2">User Personas to Simulate</label>
+                        <input type="text" id="userPersonas" name="userPersonas" placeholder="e.g., Busy professionals, Tech-savvy millennials" class="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent w-full" required>
+                    </div>
+                    <div class="flex justify-end space-x-2">
+                        <button type="button" id="cancelBtn" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out">Cancel</button>
+                        <button type="submit" class="bg-blue-800 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out">Create Project</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const createProjectBtn = document.getElementById('createProjectBtn');
+        const createProjectModal = document.getElementById('createProjectModal');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const createProjectForm = document.getElementById('createProjectForm');
+
+        createProjectBtn.addEventListener('click', () => {
+            createProjectModal.classList.remove('hidden');
+        });
+
+        cancelBtn.addEventListener('click', () => {
+            createProjectModal.classList.add('hidden');
+        });
+
+        createProjectForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formData = new FormData(createProjectForm);
+            const projectName = formData.get('projectName').trim();
+            const projectDescription = formData.get('projectDescription').trim();
+            const userPersonas = formData.get('userPersonas').trim();
+
+            if (!projectName || !projectDescription || !userPersonas) {
+                alert('Please fill in all fields.');
+                return;
+            }
+
+            // Simulate form submission
+            alert('Project created successfully!');
+            createProjectModal.classList.add('hidden');
+            createProjectForm.reset();
+        });
+    </script>
+</body>
+</html>
