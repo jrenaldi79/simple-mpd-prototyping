@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Effortless Refills – Perpetual System Subscription</title>
+  <meta name="description" content="Join the Perpetual System refill subscription: effortless refills, 50% off your first pouch, compostable packaging, and premium value that lasts." />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#1F2937', // charcoal
+              secondary: '#6B7280', // slate
+              accent: '#6E8B3D', // olive green
+              cream: '#F7F5F2', // warm off-white
+              sand: '#E8E2D9' // subtle beige
+            }
+          },
+          fontFamily: {
+            seriflux: ['Cormorant Garamond', 'serif'],
+            sanslux: ['Inter', 'system-ui', 'sans-serif']
+          },
+          boxShadow: {
+            premium: '0 2px 6px rgba(0,0,0,0.05), 0 12px 30px rgba(0,0,0,0.08)'
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .glass {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(10px) saturate(160%);
+      -webkit-backdrop-filter: blur(10px) saturate(160%);
+      border: 1px solid rgba(255, 255, 255, 0.35);
+    }
+    .hero-gradient {
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(110,139,61,0.10), transparent 50%),
+                  radial-gradient(900px 500px at 90% 0%, rgba(31,41,55,0.10), transparent 40%),
+                  linear-gradient(180deg, #F7F5F2 0%, #FFFFFF 100%);
+    }
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body class="bg-white text-brand-primary">
+  <!-- Navigation -->
+  <header class="sticky top-0 z-30 backdrop-blur bg-white/70 border-b border-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <a href="index.html" class="text-xl tracking-wide font-seriflux text-brand-primary">Perpetual System</a>
+        <nav class="hidden md:flex items-center gap-8 text-sm">
+          <a href="index.html" class="hover:text-brand-accent transition">Home</a>
+          <a href="product.html" class="hover:text-brand-accent transition">Product</a>
+          <a href="contact.html" class="hover:text-brand-accent transition">Contact</a>
+          <a href="#enroll" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary text-white hover:bg-black transition">
+            <span>Start Subscription</span>
+          </a>
+        </nav>
+        <button id="menu-btn" class="md:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-sand" aria-label="Open menu">
+          <span class="sr-only">Open Menu</span>
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-sand bg-white/90">
+      <div class="px-4 py-3 space-y-2">
+        <a class="block py-2" href="index.html">Home</a>
+        <a class="block py-2" href="product.html">Product</a>
+        <a class="block py-2" href="contact.html">Contact</a>
+        <a class="block py-2 font-medium text-brand-accent" href="#enroll">Start Subscription</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero / Subscription Overview -->
+  <section class="hero-gradient relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div class="grid md:grid-cols-12 gap-10 items-center">
+        <div class="md:col-span-7">
+          <h1 class="font-seriflux text-4xl sm:text-5xl leading-tight text-brand-primary">Effortless Refills. Elevated Care.</h1>
+          <p class="mt-5 text-lg text-brand-secondary max-w-2xl">Join the Perpetual System refill subscription and enjoy premium skincare with less waste. Get <span class="font-semibold text-brand-accent">50% off your first refill pouch</span>, automatic deliveries, and exclusive member benefits.</p>
+          <ul class="mt-6 space-y-3 text-brand-primary/80">
+            <li class="flex items-start gap-3"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-accent text-white text-xs">✓</span><span>Automatic enrollment with flexible delivery cadence</span></li>
+            <li class="flex items-start gap-3"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-accent text-white text-xs">✓</span><span>Compostable refill pouches reduce footprint</span></li>
+            <li class="flex items-start gap-3"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-accent text-white text-xs">✓</span><span>Pause or cancel anytime—no fees</span></li>
+          </ul>
+          <div class="mt-8 flex flex-wrap items-center gap-3">
+            <a href="#enroll" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-primary text-white hover:bg-black transition shadow-premium">
+              <span>Start Your Subscription</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </a>
+            <div class="glass rounded-full px-4 py-2 text-sm text-brand-primary/80">First pouch 50% off</div>
+          </div>
+        </div>
+        <div class="md:col-span-5">
+          <div class="relative rounded-2xl overflow-hidden shadow-premium border border-sand bg-white">
+            <img src="https://images.unsplash.com/photo-1596461404969-9ae70c1a3aee?q=80&w=1200&auto=format&fit=crop" alt="Refill system" class="w-full h-72 object-cover">
+            <div class="absolute bottom-4 right-4 glass rounded-xl px-4 py-2 text-sm">
+              Compostable Pouch • Low Waste
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Incentive Badges -->
+      <div class="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="glass rounded-xl p-4 flex items-center gap-3 shadow-premium">
+          <span class="w-8 h-8 rounded-full bg-brand-accent/10 text-brand-accent flex items-center justify-center">%</span>
+          <div>
+            <p class="text-sm font-medium">First Refill</p>
+            <p class="text-xs text-brand-secondary">50% Member Discount</p>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-4 flex items-center gap-3 shadow-premium">
+          <span class="w-8 h-8 rounded-full bg-brand-accent/10 text-brand-accent flex items-center justify-center">∞</span>
+          <div>
+            <p class="text-sm font-medium">Auto-Delivery</p>
+            <p class="text-xs text-brand-secondary">Flexible Cadence</p>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-4 flex items-center gap-3 shadow-premium">
+          <span class="w-8 h-8 rounded-full bg-brand-accent/10 text-brand-accent flex items-center justify-center">🌱</span>
+          <div>
+            <p class="text-sm font-medium">Compostable</p>
+            <p class="text-xs text-brand-secondary">Planet-First Design</p>
+          </div>
+        </div>
+        <div class="glass rounded-xl p-4 flex items-center gap-3 shadow-premium">
+          <span class="w-8 h-8 rounded-full bg-brand-accent/10 text-brand-accent flex items-center justify-center">★</span>
+          <div>
+            <p class="text-sm font-medium">Member Perks</p>
+            <p class="text-xs text-brand-secondary">Early Access + Gifts</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How Refilling Works -->
+  <section class="py-20 bg-brand-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="font-seriflux text-3xl sm:text-4xl">How Refilling Works</h2>
+      <p class="mt-3 text-brand-secondary max-w-2xl">A simple, intuitive ritual designed for premium results with minimal waste. A QR code on each pouch guides you to care instructions and tips.</p>
+
+      <div class="mt-10 grid md:grid-cols-4 gap-8">
+        <!-- Step 1 -->
+        <div class="bg-white border border-sand rounded-2xl p-6 shadow-sm hover:shadow-premium transition">
+          <div class="w-10 h-10 rounded-full bg-brand-accent text-white flex items-center justify-center">1</div>
+          <h3 class="mt-4 font-medium">Order Refill</h3>
+          <p class="mt-2 text-sm text-brand-secondary">Choose your cadence at checkout. We’ll remind you before each shipment.</p>
+          <div class="mt-4 text-xs text-brand-secondary">Includes QR code for quick guidance.</div>
+        </div>
+        <!-- Step 2 -->
+        <div class="bg-white border border-sand rounded-2xl p-6 shadow-sm hover:shadow-premium transition">
+          <div class="w-10 h-10 rounded-full bg-brand-accent text-white flex items-center justify-center">2</div>
+          <h3 class="mt-4 font-medium">Receive Pouch</h3>
+          <p class="mt-2 text-sm text-brand-secondary">Your compostable pouch arrives in minimal, recyclable packaging.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="bg-white border border-sand rounded-2xl p-6 shadow-sm hover:shadow-premium transition">
+          <div class="w-10 h-10 rounded-full bg-brand-accent text-white flex items-center justify-center">3</div>
+          <h3 class="mt-4 font-medium">Transfer to Vessel</h3>
+          <p class="mt-2 text-sm text-brand-secondary">Pour into your signature Perpetual Vessel for daily use—no pumps, no extra plastic.</p>
+        </div>
+        <!-- Step 4 -->
+        <div class="bg-white border border-sand rounded-2xl p-6 shadow-sm hover:shadow-premium transition">
+          <div class="w-10 h-10 rounded-full bg-brand-accent text-white flex items-center justify-center">4</div>
+          <h3 class="mt-4 font-medium">Compost the Pouch</h3>
+          <p class="mt-2 text-sm text-brand-secondary">Dispose responsibly—commercially compostable materials support a circular system.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Incentives and Metrics -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-12 items-start">
+        <div class="lg:col-span-7">
+          <h2 class="font-seriflux text-3xl sm:text-4xl">Incentives & Long-Term Value</h2>
+          <p class="mt-3 text-brand-secondary">Our subscription aligns sustainability with savings. Members enjoy better pricing over time while supporting a low-waste routine.</p>
+
+          <div class="mt-8 grid sm:grid-cols-2 gap-6">
+            <div class="border border-sand rounded-xl p-6 shadow-sm">
+              <p class="text-sm tracking-wide text-brand-secondary uppercase">CLV Focus</p>
+              <p class="mt-2 text-lg font-medium">High lifetime value through consistent care</p>
+              <p class="mt-2 text-sm text-brand-secondary">Members save on every refill, driving loyalty and continuous results.</p>
+            </div>
+            <div class="border border-sand rounded-xl p-6 shadow-sm">
+              <p class="text-sm tracking-wide text-brand-secondary uppercase">Retention</p>
+              <p class="mt-2 text-lg font-medium">Designed to retain at 85%+</p>
+              <p class="mt-2 text-sm text-brand-secondary">Flexible cadence, reminders, and premium experience minimize churn.</p>
+            </div>
+            <div class="border border-sand rounded-xl p-6 shadow-sm">
+              <p class="text-sm tracking-wide text-brand-secondary uppercase">Pricing Strategy</p>
+              <p class="mt-2 text-lg font-medium">Justifies the premium</p>
+              <p class="mt-2 text-sm text-brand-secondary">Refills reduce packaging costs; savings passed on to members while maintaining quality.</p>
+            </div>
+            <div class="border border-sand rounded-xl p-6 shadow-sm">
+              <p class="text-sm tracking-wide text-brand-secondary uppercase">Impact</p>
+              <p class="mt-2 text-lg font-medium">Less waste, lower footprint</p>
+              <p class="mt-2 text-sm text-brand-secondary">Each pouch uses up to 70% less material vs. rigid containers.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="lg:col-span-5">
+          <div class="glass rounded-2xl p-6 shadow-premium">
+            <h3 class="font-medium">Member Snapshot</h3>
+            <div class="mt-4 grid grid-cols-2 gap-4 text-sm">
+              <div class="p-4 rounded-xl bg-white/70 border border-sand">
+                <p class="text-xs text-brand-secondary">Average Savings</p>
+                <p class="mt-1 text-2xl font-seriflux">18%</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/70 border border-sand">
+                <p class="text-xs text-brand-secondary">Packaging Reduced</p>
+                <p class="mt-1 text-2xl font-seriflux">-70%</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/70 border border-sand">
+                <p class="text-xs text-brand-secondary">Projected CLV</p>
+                <p class="mt-1 text-2xl font-seriflux">2.1×</p>
+              </div>
+              <div class="p-4 rounded-xl bg-white/70 border border-sand">
+                <p class="text-xs text-brand-secondary">Retention Goal</p>
+                <p class="mt-1 text-2xl font-seriflux">85%+</p>
+              </div>
+            </div>
+            <p class="mt-4 text-xs text-brand-secondary">Metrics are illustrative; actual performance varies.</p>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section / Enrollment -->
+  <section id="enroll" class="py-20 bg-brand-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-center">
+        <div class="lg:col-span-6">
+          <h2 class="font-seriflux text-3xl sm:text-4xl">Enroll in Minutes</h2>
+          <p class="mt-3 text-brand-secondary">Add the refill subscription at checkout or start below. You can adjust frequency, update addresses, and pause anytime from your account.</p>
+          <ul class="mt-6 space-y-3 text-brand-primary/80 text-sm">
+            <li class="flex items-start gap-3"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-accent text-white text-xs">✓</span><span>Choose monthly, 6-week, or 8-week cadence</span></li>
+            <li class="flex items-start gap-3"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-accent text-white text-xs">✓</span><span>Edit or skip shipments from your dashboard</span></li>
+            <li class="flex items-start gap-3"><span class="inline-flex items-center justify-center w-6 h-6 rounded-full bg-brand-accent text-white text-xs">✓</span><span>Secure checkout with transparent pricing</span></li>
+          </ul>
+        </div>
+        <div class="lg:col-span-6">
+          <form id="subscribe-form" class="bg-white border border-sand rounded-2xl p-6 shadow-sm" action="#" method="post">
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div>
+                <label for="email" class="block text-sm mb-1">Email</label>
+                <input required id="email" name="email" type="email" placeholder="you@example.com" class="w-full rounded-lg border border-sand px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-accent/30" />
+              </div>
+              <div>
+                <label for="cadence" class="block text-sm mb-1">Delivery Cadence</label>
+                <select id="cadence" name="cadence" class="w-full rounded-lg border border-sand px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-accent/30">
+                  <option>Every 4 weeks</option>
+                  <option>Every 6 weeks</option>
+                  <option>Every 8 weeks</option>
+                </select>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="notes" class="block text-sm mb-1">Notes (optional)</label>
+                <textarea id="notes" name="notes" rows="3" placeholder="Allergies, preferences, delivery notes" class="w-full rounded-lg border border-sand px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-accent/30"></textarea>
+              </div>
+            </div>
+            <button type="submit" class="mt-6 w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-brand-primary text-white hover:bg-black transition">
+              Start Subscription
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+            </button>
+            <p class="mt-3 text-xs text-brand-secondary">This is a placeholder form. The final checkout flow will capture payment and shipping details securely.</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 border-t border-sand">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <p class="text-sm text-brand-secondary">© <span id="year"></span> Perpetual System. All rights reserved.</p>
+        <nav class="flex items-center gap-6 text-sm">
+          <a href="index.html" class="hover:text-brand-accent transition">Home</a>
+          <a href="product.html" class="hover:text-brand-accent transition">Product</a>
+          <a href="contact.html" class="hover:text-brand-accent transition">Contact</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile menu toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      menuBtn?.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+      // Current year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Placeholder form handling
+      const form = document.getElementById('subscribe-form');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // Minimal success toast
+        const toast = document.createElement('div');
+        toast.className = 'fixed bottom-6 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-brand-primary text-white shadow-premium';
+        toast.textContent = 'Subscription preference saved (placeholder). Redirecting to checkout…';
+        document.body.appendChild(toast);
+        setTimeout(() => toast.remove(), 3000);
+      });
+
+      // Smooth scroll for internal anchors
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          const href = anchor.getAttribute('href');
+          if (href && href.length > 1) {
+            e.preventDefault();
+            const target = document.querySelector(href);
+            target?.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
