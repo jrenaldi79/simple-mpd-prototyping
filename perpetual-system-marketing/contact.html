@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact • Perpetual System</title>
+  
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ps-ivory:#faf7f2;
+      --ps-ink:#0e1614; /* deep green-black */
+      --ps-charcoal:#1f2937;
+      --ps-sage:#98b2a3;
+      --ps-gold:#c7a36f;
+      --ps-line:#e8e1d8;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--ps-ink); }
+    .display { font-family: 'Cormorant Garamond', serif; letter-spacing: 0.2px; }
+
+    /* subtle page background */
+    .bg-luxe {
+      background: radial-gradient(1200px 600px at 10% -10%, rgba(199,163,111,0.14), transparent 60%),
+                  radial-gradient(800px 500px at 110% 20%, rgba(152,178,163,0.18), transparent 50%),
+                  linear-gradient(180deg, #fbf8f3 0%, #f6f2ea 100%);
+    }
+
+    /* Glassmorphism card */
+    .glass {
+      background: rgba(255,255,255,0.75);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      backdrop-filter: blur(10px) saturate(140%);
+      border: 1px solid rgba(255,255,255,0.5);
+    }
+
+    /* Premium shadow */
+    .shadow-premium {
+      box-shadow:
+        0 1px 2px rgba(0,0,0,0.05),
+        0 10px 20px -10px rgba(14,22,20,0.25);
+    }
+
+    /* Focus ring tuned to palette */
+    .focus-ring:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(199,163,111,0.35);
+    }
+
+    /* Accordion transitions */
+    .accordion-panel { transition: grid-template-rows 350ms ease, opacity 300ms ease; }
+  </style>
+</head>
+<body class="bg-luxe min-h-screen">
+  <!-- Header / Nav -->
+  <header class="sticky top-0 z-50 bg-[rgba(250,247,242,0.85)] backdrop-blur border-b border-[var(--ps-line)]">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-16">
+      <a href="index.html" class="flex items-center gap-2 group" aria-label="Perpetual System Home">
+        <span class="w-2 h-6 bg-[var(--ps-gold)] rounded-sm block group-hover:h-7 transition-all"></span>
+        <span class="display text-xl tracking-wide">Perpetual System</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm">
+        <a class="hover:text-[var(--ps-gold)] transition-colors" href="index.html">Home</a>
+        <a class="hover:text-[var(--ps-gold)] transition-colors" href="product.html">Product</a>
+        <a class="hover:text-[var(--ps-gold)] transition-colors" href="subscription.html">Subscription</a>
+        <a class="text-[var(--ps-gold)]" href="contact.html" aria-current="page">Contact</a>
+      </nav>
+      <button id="menu-btn" class="md:hidden p-2 rounded focus-ring" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open menu">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden border-t border-[var(--ps-line)] bg-[rgba(250,247,242,0.9)]">
+      <nav class="px-4 py-3 space-y-2">
+        <a class="block py-2" href="index.html">Home</a>
+        <a class="block py-2" href="product.html">Product</a>
+        <a class="block py-2" href="subscription.html">Subscription</a>
+        <a class="block py-2 text-[var(--ps-gold)]" href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero / Intro -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
+    <div class="grid lg:grid-cols-5 gap-10 items-start">
+      <div class="lg:col-span-3">
+        <h1 class="display text-4xl sm:text-5xl leading-tight">We're here to help</h1>
+        <p class="mt-4 text-[17px] text-gray-700 max-w-2xl">Whether you have a question about durability, refills, composting, or managing your subscription, our team is on hand to assist. Expect considerate, timely support that matches the quality of our vessels.</p>
+      </div>
+      <div class="lg:col-span-2">
+        <div class="glass shadow-premium rounded-xl p-6">
+          <h2 class="display text-2xl">Contact</h2>
+          <div class="mt-4 space-y-3 text-[15px]">
+            <p>Email: <a class="underline decoration-[var(--ps-gold)] underline-offset-4 hover:text-[var(--ps-gold)]" href="mailto:hello@perpetualsystem.com">hello@perpetualsystem.com</a></p>
+            <p>Support hours: Mon–Fri, 9am–6pm PT</p>
+            <p>Average response time: under 24 hours</p>
+          </div>
+          <div class="mt-6">
+            <a href="#contact-form" class="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--ps-gold)] text-[15px] hover:bg-[var(--ps-gold)] hover:text-white transition-colors focus-ring">Send us a message
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section id="contact-form" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 sm:pb-16">
+    <div class="grid lg:grid-cols-2 gap-10 items-start">
+      <div class="glass shadow-premium rounded-xl p-6">
+        <h2 class="display text-2xl">Send a message</h2>
+        <p class="mt-2 text-sm text-gray-700">We typically reply within one business day.</p>
+        <form id="ps-form" class="mt-6 space-y-5" novalidate>
+          <div>
+            <label for="name" class="block text-sm mb-1">Name</label>
+            <input id="name" name="name" type="text" required placeholder="Your full name" class="w-full border border-[var(--ps-line)] rounded-lg px-3 py-2 bg-white/80 focus-ring" />
+            <p class="mt-1 text-xs text-red-600 hidden" id="err-name">Please enter your name.</p>
+          </div>
+          <div>
+            <label for="email" class="block text-sm mb-1">Email</label>
+            <input id="email" name="email" type="email" required placeholder="you@example.com" class="w-full border border-[var(--ps-line)] rounded-lg px-3 py-2 bg-white/80 focus-ring" />
+            <p class="mt-1 text-xs text-red-600 hidden" id="err-email">Please enter a valid email.</p>
+          </div>
+          <div>
+            <label for="message" class="block text-sm mb-1">Message</label>
+            <textarea id="message" name="message" rows="5" required placeholder="How can we help?" class="w-full border border-[var(--ps-line)] rounded-lg px-3 py-2 bg-white/80 focus-ring"></textarea>
+            <p class="mt-1 text-xs text-red-600 hidden" id="err-message">Please include a brief message.</p>
+          </div>
+          <div class="flex items-center justify-between">
+            <div class="text-[13px] text-gray-600">By sending, you agree to our <a href="#" class="underline underline-offset-4 hover:text-[var(--ps-gold)]">privacy policy</a>.</div>
+            <button type="submit" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--ps-ink)] text-white hover:opacity-90 transition focus-ring">
+              Submit
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7l5 5m0 0l-5 5m5-5H6"/></svg>
+            </button>
+          </div>
+        </form>
+        <div id="toast" class="hidden mt-4 p-3 rounded-lg border border-[var(--ps-line)] bg-white/90">Thank you — your message has been noted. This demo does not send emails.</div>
+      </div>
+
+      <!-- Support Resources -->
+      <aside class="space-y-6">
+        <div class="rounded-xl border border-[var(--ps-line)] bg-white/70 p-6">
+          <h3 class="display text-xl">Support resources</h3>
+          <ul class="mt-4 space-y-3 text-[15px]">
+            <li class="flex items-start gap-3">
+              <span aria-hidden="true" class="mt-1 inline-block w-2 h-2 rounded-full bg-[var(--ps-gold)]"></span>
+              <a class="underline decoration-[var(--ps-gold)] underline-offset-4 hover:text-[var(--ps-gold)]" href="https://www.youtube.com/" target="_blank" rel="noopener">Tutorial videos</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <span aria-hidden="true" class="mt-1 inline-block w-2 h-2 rounded-full bg-[var(--ps-gold)]"></span>
+              <a class="underline decoration-[var(--ps-gold)] underline-offset-4 hover:text-[var(--ps-gold)]" href="#fulfillment">Fulfillment & shipping details</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <span aria-hidden="true" class="mt-1 inline-block w-2 h-2 rounded-full bg-[var(--ps-gold)]"></span>
+              <a class="underline decoration-[var(--ps-gold)] underline-offset-4 hover:text-[var(--ps-gold)]" href="#refill">Refill compatibility guide</a>
+            </li>
+          </ul>
+          <div class="mt-6 grid grid-cols-2 gap-4">
+            <div class="border border-[var(--ps-line)] rounded-lg p-3 flex items-center gap-3">
+              <div aria-hidden="true" class="w-12 h-12 bg-[var(--ps-ink)] text-white grid place-items-center rounded">
+                <!-- QR glyph (decorative) -->
+                <svg viewBox="0 0 24 24" class="w-7 h-7" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M3 3h6v6H3V3zm2 2v2h2V5H5zM15 3h6v6h-6V3zm2 2v2h2V5h-2zM3 15h6v6H3v-6zm2 2v2h2v-2H5zM11 11h2v2h-2v-2zm2 4h2v2h-2v-2zm0-8h2v2h-2V7zm4 4h2v2h-2v-2zm-6 6h2v2h-2v-2zm6 2h2v2h-2v-2z"/></svg>
+              </div>
+              <div>
+                <div class="text-sm font-medium">Scan for tutorials</div>
+                <a href="https://www.youtube.com/" target="_blank" rel="noopener" class="text-xs underline underline-offset-4">Open videos</a>
+              </div>
+            </div>
+            <div class="border border-[var(--ps-line)] rounded-lg p-3 flex items-center gap-3">
+              <div aria-hidden="true" class="w-12 h-12 bg-[var(--ps-ink)] text-white grid place-items-center rounded">
+                <svg viewBox="0 0 24 24" class="w-7 h-7" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M4 4h10v4H4V4zm0 6h16v4H4v-4zm0 6h10v4H4v-4z"/></svg>
+              </div>
+              <div>
+                <div class="text-sm font-medium">Manage subscription</div>
+                <a href="subscription.html" class="text-xs underline underline-offset-4">Go to subscription</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pb-20" aria-labelledby="faq-title">
+    <h2 id="faq-title" class="display text-3xl">Frequently asked questions</h2>
+    <div class="mt-8 divide-y divide-[var(--ps-line)] border-y border-[var(--ps-line)]" role="list">
+      <!-- Durability -->
+      <article class="py-4" role="listitem">
+        <h3>
+          <button class="w-full text-left py-3 flex items-center justify-between gap-4 focus-ring" aria-expanded="false" aria-controls="faq-1" id="faq-btn-1">
+            <span class="text-[17px]">How durable is the vessel for daily use?</span>
+            <svg class="h-5 w-5 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+          </button>
+        </h3>
+        <div id="faq-1" role="region" aria-labelledby="faq-btn-1" class="grid accordion-panel grid-rows-[0fr] opacity-0">
+          <div class="overflow-hidden">
+            <p class="pb-4 text-gray-700">Our metal core with ceramic coating resists scratches and impact from typical daily use. A soft base protects countertops. Hand-wash recommended to preserve finish.</p>
+          </div>
+        </div>
+      </article>
+      <!-- Refill compatibility -->
+      <article class="py-4" role="listitem">
+        <h3>
+          <button class="w-full text-left py-3 flex items-center justify-between gap-4 focus-ring" aria-expanded="false" aria-controls="faq-2" id="faq-btn-2">
+            <span class="text-[17px]">Which refills are compatible?</span>
+            <svg class="h-5 w-5 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+          </button>
+        </h3>
+        <div id="faq-2" role="region" aria-labelledby="faq-btn-2" class="grid accordion-panel grid-rows-[0fr] opacity-0">
+          <div class="overflow-hidden">
+            <p class="pb-4 text-gray-700">Our universal adapter accommodates most 28mm and 410-thread pumps and caps. See the <a class="underline underline-offset-4 hover:text-[var(--ps-gold)]" href="#refill">compatibility guide</a> for brand-specific fits.</p>
+          </div>
+        </div>
+      </article>
+      <!-- Composting -->
+      <article class="py-4" role="listitem">
+        <h3>
+          <button class="w-full text-left py-3 flex items-center justify-between gap-4 focus-ring" aria-expanded="false" aria-controls="faq-3" id="faq-btn-3">
+            <span class="text-[17px]">Are any components compostable?</span>
+            <svg class="h-5 w-5 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+          </button>
+        </h3>
+        <div id="faq-3" role="region" aria-labelledby="faq-btn-3" class="grid accordion-panel grid-rows-[0fr] opacity-0">
+          <div class="overflow-hidden">
+            <p class="pb-4 text-gray-700">Refill pouches are curbside-recyclable where facilities exist; our plant-based liners are industrial-compostable. Check local guidelines for best disposal practices.</p>
+          </div>
+        </div>
+      </article>
+      <!-- Subscription cancellation -->
+      <article class="py-4" role="listitem">
+        <h3>
+          <button class="w-full text-left py-3 flex items-center justify-between gap-4 focus-ring" aria-expanded="false" aria-controls="faq-4" id="faq-btn-4">
+            <span class="text-[17px]">How do I pause or cancel my subscription?</span>
+            <svg class="h-5 w-5 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+          </button>
+        </h3>
+        <div id="faq-4" role="region" aria-labelledby="faq-btn-4" class="grid accordion-panel grid-rows-[0fr] opacity-0">
+          <div class="overflow-hidden">
+            <p class="pb-4 text-gray-700">You can manage deliveries any time from your <a class="underline underline-offset-4 hover:text-[var(--ps-gold)]" href="subscription.html">subscription portal</a>. Pause, skip, or cancel with one click—no emails required.</p>
+          </div>
+        </div>
+      </article>
+      <!-- Fulfillment -->
+      <article id="fulfillment" class="py-4" role="listitem">
+        <h3>
+          <button class="w-full text-left py-3 flex items-center justify-between gap-4 focus-ring" aria-expanded="false" aria-controls="faq-5" id="faq-btn-5">
+            <span class="text-[17px]">When will my order ship?</span>
+            <svg class="h-5 w-5 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+          </button>
+        </h3>
+        <div id="faq-5" role="region" aria-labelledby="faq-btn-5" class="grid accordion-panel grid-rows-[0fr] opacity-0">
+          <div class="overflow-hidden">
+            <p class="pb-4 text-gray-700">Orders placed before 2pm ship same day. Standard delivery is 3–5 business days; expedited options available at checkout. You'll receive tracking once dispatched.</p>
+          </div>
+        </div>
+      </article>
+      <!-- Refill guide anchor -->
+      <article id="refill" class="py-4" role="listitem">
+        <h3>
+          <button class="w-full text-left py-3 flex items-center justify-between gap-4 focus-ring" aria-expanded="false" aria-controls="faq-6" id="faq-btn-6">
+            <span class="text-[17px]">How do I find the right refill?</span>
+            <svg class="h-5 w-5 transition-transform" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.71a.75.75 0 111.06 1.06l-4.24 4.24a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"/></svg>
+          </button>
+        </h3>
+        <div id="faq-6" role="region" aria-labelledby="faq-btn-6" class="grid accordion-panel grid-rows-[0fr] opacity-0">
+          <div class="overflow-hidden">
+            <p class="pb-4 text-gray-700">Match the thread size on your existing bottle or choose our universal pump. Our team can advise on brand compatibility—just <a class="underline underline-offset-4 hover:text-[var(--ps-gold)]" href="mailto:hello@perpetualsystem.com">email us</a>.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-[var(--ps-line)] bg-white/70">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 text-sm flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="text-gray-600">© <span id="year"></span> Perpetual System. All rights reserved.</div>
+      <div class="flex items-center gap-6">
+        <a href="index.html" class="hover:text-[var(--ps-gold)]">Home</a>
+        <a href="product.html" class="hover:text-[var(--ps-gold)]">Product</a>
+        <a href="subscription.html" class="hover:text-[var(--ps-gold)]">Subscription</a>
+        <a href="contact.html" class="text-[var(--ps-gold)]">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Mobile menu
+      const menuBtn = document.getElementById('menu-btn');
+      const menu = document.getElementById('mobile-menu');
+      menuBtn?.addEventListener('click', () => {
+        const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!expanded));
+        menu.classList.toggle('hidden');
+      });
+
+      // Current year
+      const year = document.getElementById('year');
+      if (year) year.textContent = new Date().getFullYear();
+
+      // Accordion logic
+      const buttons = document.querySelectorAll('[aria-controls^="faq-"]');
+      buttons.forEach((btn) => {
+        const panelId = btn.getAttribute('aria-controls');
+        const panel = document.getElementById(panelId);
+        btn.addEventListener('click', () => {
+          const expanded = btn.getAttribute('aria-expanded') === 'true';
+          btn.setAttribute('aria-expanded', String(!expanded));
+          // icon rotate
+          const icon = btn.querySelector('svg');
+          if (icon) icon.style.transform = expanded ? 'rotate(0deg)' : 'rotate(180deg)';
+          // animate
+          if (!expanded) {
+            panel.classList.remove('grid-rows-[0fr]', 'opacity-0');
+            panel.classList.add('grid-rows-[1fr]', 'opacity-100');
+          } else {
+            panel.classList.add('grid-rows-[0fr]', 'opacity-0');
+            panel.classList.remove('grid-rows-[1fr]', 'opacity-100');
+          }
+        });
+      });
+
+      // Form validation (client-side placeholder)
+      const form = document.getElementById('ps-form');
+      const toast = document.getElementById('toast');
+      form?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let valid = true;
+        const name = document.getElementById('name');
+        const email = document.getElementById('email');
+        const message = document.getElementById('message');
+
+        // Reset states
+        ['err-name','err-email','err-message'].forEach(id => document.getElementById(id)?.classList.add('hidden'));
+
+        if (!name.value.trim()) { valid = false; document.getElementById('err-name').classList.remove('hidden'); }
+        if (!email.validity.valid) { valid = false; document.getElementById('err-email').classList.remove('hidden'); }
+        if (!message.value.trim()) { valid = false; document.getElementById('err-message').classList.remove('hidden'); }
+
+        if (valid) {
+          toast?.classList.remove('hidden');
+          form.reset();
+          setTimeout(() => toast?.classList.add('hidden'), 5000);
+        }
+      });
+    });
+  </script>
+</body>
+</html>
