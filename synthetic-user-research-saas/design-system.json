@@ -1,0 +1,141 @@
+{
+  "name": "Synthetic User Research SaaS Design System",
+  "version": "1.0.0",
+  "description": "Comprehensive design system for a professional, modern SaaS platform focused on data visualization and user research.",
+  "colors": {
+    "primary": {
+      "hex": "#1e40af",
+      "tailwind": "blue-800",
+      "description": "Deep blue for primary actions and branding"
+    },
+    "secondary": {
+      "hex": "#dbeafe",
+      "tailwind": "blue-100",
+      "description": "Light blue for secondary elements and backgrounds"
+    },
+    "accent": {
+      "hex": "#10b981",
+      "tailwind": "emerald-500",
+      "description": "Emerald green for success states and highlights"
+    },
+    "neutrals": {
+      "white": "#ffffff",
+      "gray-50": "#f9fafb",
+      "gray-100": "#f3f4f6",
+      "gray-200": "#e5e7eb",
+      "gray-300": "#d1d5db",
+      "gray-400": "#9ca3af",
+      "gray-500": "#6b7280",
+      "gray-600": "#4b5563",
+      "gray-700": "#374151",
+      "gray-800": "#1f2937",
+      "gray-900": "#111827",
+      "black": "#000000"
+    },
+    "semantic": {
+      "success": "#10b981",
+      "warning": "#f59e0b",
+      "error": "#ef4444",
+      "info": "#3b82f6"
+    }
+  },
+  "typography": {
+    "font_family": "Inter",
+    "cdn_link": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap",
+    "scale": {
+      "xs": "0.75rem (12px)",
+      "sm": "0.875rem (14px)",
+      "base": "1rem (16px)",
+      "lg": "1.125rem (18px)",
+      "xl": "1.25rem (20px)",
+      "2xl": "1.5rem (24px)",
+      "3xl": "1.875rem (30px)",
+      "4xl": "2.25rem (36px)",
+      "5xl": "3rem (48px)",
+      "6xl": "3.75rem (60px)"
+    },
+    "weights": {
+      "light": 300,
+      "normal": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    }
+  },
+  "effects": {
+    "glassmorphism": {
+      "class": "backdrop-blur-md bg-white/10 border border-white/20",
+      "description": "Semi-transparent background with blur for modern overlays"
+    },
+    "shadows": {
+      "sm": "shadow-sm",
+      "md": "shadow-md",
+      "lg": "shadow-lg",
+      "xl": "shadow-xl",
+      "inner": "shadow-inner"
+    },
+    "transitions": {
+      "default": "transition duration-300 ease-in-out",
+      "fast": "transition duration-150 ease-in-out",
+      "slow": "transition duration-500 ease-in-out"
+    },
+    "gradients": {
+      "primary": "bg-gradient-to-r from-blue-800 to-blue-600",
+      "secondary": "bg-gradient-to-r from-blue-100 to-blue-50"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-blue-800 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out",
+      "secondary": "bg-blue-100 hover:bg-blue-200 text-blue-800 font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out",
+      "outline": "border border-blue-800 text-blue-800 hover:bg-blue-800 hover:text-white font-medium py-2 px-4 rounded-lg transition duration-300 ease-in-out"
+    },
+    "cards": {
+      "default": "bg-white rounded-lg shadow-md p-6 border border-gray-200",
+      "glass": "backdrop-blur-md bg-white/10 border border-white/20 rounded-lg p-6 shadow-lg"
+    },
+    "navigation": {
+      "nav_item": "text-gray-700 hover:text-blue-800 font-medium transition duration-300 ease-in-out",
+      "active_nav_item": "text-blue-800 font-semibold"
+    },
+    "forms": {
+      "input": "border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent",
+      "label": "block text-sm font-medium text-gray-700 mb-2",
+      "textarea": "border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
+    }
+  },
+  "layout": {
+    "breakpoints": {
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    "spacing": {
+      "1": "0.25rem (4px)",
+      "2": "0.5rem (8px)",
+      "3": "0.75rem (12px)",
+      "4": "1rem (16px)",
+      "5": "1.25rem (20px)",
+      "6": "1.5rem (24px)",
+      "8": "2rem (32px)",
+      "10": "2.5rem (40px)",
+      "12": "3rem (48px)",
+      "16": "4rem (64px)",
+      "20": "5rem (80px)",
+      "24": "6rem (96px)"
+    },
+    "grid": {
+      "cols": "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4",
+      "gaps": "gap-4 md:gap-6 lg:gap-8"
+    }
+  },
+  "imagery": {
+    "style": "Minimalist, professional illustrations with clean lines and subtle gradients",
+    "mood": "Trustworthy, modern, data-driven",
+    "color_treatment": "Use primary and secondary colors as base, with accent for highlights",
+    "composition": "Centered subjects with plenty of white space, focus on clarity and simplicity",
+    "technical": "Vector-based or high-resolution PNG, aspect ratios as specified per use case"
+  }
+}
