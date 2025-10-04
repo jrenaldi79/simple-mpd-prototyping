@@ -1,0 +1,218 @@
+{
+  "prototype_name": "Student Chat Simulator",
+  "theme": "Educational, friendly, approachable, modern - designed for students to feel comfortable practicing conversations",
+  "created_date": "2024-12-19",
+  "target_audience": "Students (high school and college age) looking to practice communication skills",
+  
+  "color_palette": {
+    "primary": "#3b82f6",
+    "secondary": "#10b981",
+    "accent": "#f97316",
+    "semantic": {
+      "success": "#10b981",
+      "warning": "#f59e0b", 
+      "error": "#ef4444",
+      "info": "#3b82f6"
+    },
+    "neutrals": {
+      "background": "#f8fafc",
+      "surface": "#ffffff",
+      "border": "#e2e8f0",
+      "text_primary": "#0f172a",
+      "text_secondary": "#64748b"
+    }
+  },
+  
+  "typography": {
+    "font_family": "Inter",
+    "cdn_link": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "scale": {
+      "xs": "0.75rem",
+      "sm": "0.875rem",
+      "base": "1rem",
+      "lg": "1.125rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "1.875rem",
+      "4xl": "2.25rem",
+      "5xl": "3rem",
+      "6xl": "3.75rem"
+    },
+    "line_heights": {
+      "tight": "1.25",
+      "normal": "1.5",
+      "relaxed": "1.75"
+    }
+  },
+  
+  "icon_system": {
+    "library": "Lucide",
+    "cdn_link": "https://unpkg.com/lucide@latest",
+    "initialization": "lucide.createIcons()",
+    "approach": "Inline SVG via data-lucide attributes",
+    "size_default": "24",
+    "stroke_width": "2",
+    "color_usage": "Inherit from parent or use theme colors",
+    "common_icons": {
+      "navigation": ["menu", "x", "home", "chevron-down", "chevron-right"],
+      "actions": ["plus", "edit", "trash-2", "send", "mic", "mic-off", "play", "pause"],
+      "status": ["check-circle", "alert-circle", "alert-triangle", "info", "x-circle"],
+      "social": ["user", "users", "message-circle", "heart", "thumbs-up"],
+      "interface": ["search", "settings", "bell", "help-circle", "book-open"],
+      "data": ["bar-chart", "activity", "clock", "calendar"],
+      "ux_research": ["eye", "target", "zap", "trending-up", "pie-chart", "users", "message-square"]
+    },
+    "usage_example": "<i data-lucide=\"message-circle\" class=\"w-6 h-6 text-blue-500\"></i>"
+  },
+  
+  "imagery": {
+    "usage_context": "web-app",
+    "generation_guidelines": {
+      "when_to_generate": [
+        "User avatar placeholders for different personas/characters",
+        "Onboarding illustrations for tutorial screens",
+        "Achievement badges and progress indicators",
+        "Background patterns for conversation themes"
+      ],
+      "when_to_skip": [
+        "Chat interface elements - use icons instead",
+        "Navigation and UI controls - icons are more appropriate",
+        "Data visualization - use charts/graphs instead",
+        "Form elements - focus on clean UI patterns"
+      ],
+      "style_preferences": [
+        "Friendly and approachable illustration style",
+        "Modern, clean aesthetic matching the blue/green/orange palette",
+        "Diverse and inclusive character representations",
+        "Professional quality appropriate for educational context"
+      ],
+      "aspect_ratios": {
+        "hero_background": "16:9",
+        "feature_illustration": "4:3 or 1:1",
+        "profile_photo": "1:1 (square)",
+        "content_image": "4:3",
+        "background_pattern": "seamless/tileable"
+      }
+    },
+    "prompt_template": "[Subject], modern educational app style, friendly and approachable, blue and green color palette, professional illustration, [aspect ratio]"
+  },
+  
+  "spacing": {
+    "system": "Tailwind default scale (4px base unit)",
+    "container_max_width": "1280px (max-w-7xl)",
+    "section_vertical_padding": "py-8 md:py-12",
+    "section_horizontal_padding": "px-4 sm:px-6 lg:px-8",
+    "component_padding": {
+      "button": "px-4 py-2",
+      "card": "p-4 md:p-6",
+      "input": "px-3 py-2"
+    }
+  },
+  
+  "effects": {
+    "glassmorphism": {
+      "css_class": "glass",
+      "properties": {
+        "background": "rgba(255, 255, 255, 0.9)",
+        "backdrop_filter": "blur(8px) saturate(180%)",
+        "border": "1px solid rgba(255, 255, 255, 0.4)"
+      },
+      "usage": "Chat message overlays, notification panels, floating action buttons"
+    },
+    "shadows": {
+      "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      "base": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      "premium": "0 8px 25px -5px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)"
+    },
+    "transitions": {
+      "duration_fast": "150ms",
+      "duration_base": "300ms", 
+      "duration_slow": "500ms",
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "hover_scale": "1.02",
+      "hover_scale_button": "1.05"
+    },
+    "gradients": {
+      "background_primary": "bg-gradient-to-br from-blue-50 to-slate-50",
+      "background_hero": "bg-gradient-to-br from-blue-50 via-green-50 to-orange-50",
+      "button_primary": "bg-gradient-to-r from-blue-600 to-blue-700",
+      "accent": "bg-gradient-to-br from-blue-500 to-green-500"
+    }
+  },
+  
+  "components": {
+    "buttons": {
+      "primary": {
+        "classes": "bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md font-medium",
+        "usage": "Send message, start conversation, primary actions"
+      },
+      "secondary": {
+        "classes": "bg-white hover:bg-slate-50 text-slate-900 px-4 py-2 rounded-lg transition-all duration-200 transform hover:scale-105 shadow-md border border-slate-200 font-medium",
+        "usage": "Cancel, skip, alternative actions"
+      },
+      "text": {
+        "classes": "text-blue-600 hover:text-blue-700 transition-colors duration-200 font-medium",
+        "usage": "Inline actions, links, subtle interactions"
+      }
+    },
+    "cards": {
+      "base": {
+        "classes": "bg-white rounded-xl p-4 border border-slate-200 transition-all duration-200",
+        "usage": "Content containers, conversation panels"
+      },
+      "interactive": {
+        "classes": "bg-white rounded-xl p-4 border border-slate-200 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 cursor-pointer",
+        "usage": "Clickable conversation starters, scenario cards"
+      }
+    },
+    "navigation": {
+      "container": "bg-white shadow-sm border-b border-slate-200 fixed top-0 left-0 right-0 z-50",
+      "height": "h-16",
+      "link": "text-slate-700 hover:text-blue-600 transition-colors duration-200 font-medium",
+      "link_active": "text-blue-600 font-semibold"
+    },
+    "forms": {
+      "input": "w-full px-3 py-2 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none bg-white",
+      "label": "block text-sm font-medium text-slate-700 mb-1",
+      "error": "text-sm text-red-600 mt-1"
+    }
+  },
+  
+  "layout": {
+    "responsive_breakpoints": {
+      "sm": "640px",
+      "md": "768px", 
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px"
+    },
+    "grid_patterns": {
+      "2_column": "grid-cols-1 md:grid-cols-2 gap-4",
+      "3_column": "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4",
+      "4_column": "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+    },
+    "spacing_scale": {
+      "section_gap": "gap-8 md:gap-12",
+      "component_gap": "gap-4 md:gap-6",
+      "element_gap": "gap-2 md:gap-3"
+    }
+  },
+  
+  "references_analyzed": [],
+  
+  "design_rationale": {
+    "color_choices": "Blue (#3b82f6) provides trust and professionalism essential for educational tools. Green (#10b981) creates a positive, encouraging learning environment. Orange (#f97316) adds warmth and energy to maintain student engagement without being distracting.",
+    "typography_choice": "Inter chosen for exceptional readability in chat interfaces and screens. Its clean, modern appearance works well for sustained reading of conversations while maintaining professional educational credibility.",
+    "icon_strategy": "Lucide provides comprehensive icons perfect for chat interfaces (message bubbles, send buttons, user indicators) with consistent stroke-based styling that feels modern and approachable for students.",
+    "imagery_approach": "Web-app focused on chat functionality - minimal image generation, focusing on user avatars and onboarding illustrations. Icons handle most UI needs to maintain clean, distraction-free learning environment.",
+    "effects_rationale": "Subtle glassmorphism and shadows provide visual hierarchy in chat interfaces without overwhelming the educational content. Quick transitions (200ms) maintain responsiveness expected by students while gentle hover effects provide clear interaction feedback."
+  }
+}
