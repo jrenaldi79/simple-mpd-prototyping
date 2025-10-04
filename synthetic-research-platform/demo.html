@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request a Demo - Synthetic User Research Platform</title>
+    <meta name="description" content="Request a personalized demo of our next-generation synthetic user research platform. Discover how we can accelerate your research process.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            /* Colors */
+            --color-primary-500: #3b82f6;
+            --color-primary-600: #2563eb;
+            --color-primary-700: #1d4ed8;
+            --color-primary-100: #dbeafe;
+            --color-primary-50: #eff6ff;
+            
+            --color-neutral-50: #f8fafc;
+            --color-neutral-100: #f1f5f9;
+            --color-neutral-200: #e2e8f0;
+            --color-neutral-300: #cbd5e1;
+            --color-neutral-400: #94a3b8;
+            --color-neutral-500: #64748b;
+            --color-neutral-600: #475569;
+            --color-neutral-700: #334155;
+            --color-neutral-800: #1e293b;
+            --color-neutral-900: #0f172a;
+            
+            --color-success: #10b981;
+            --color-success-light: #d1fae5;
+            --color-success-dark: #047857;
+            --color-error: #ef4444;
+            --color-error-light: #fecaca;
+            
+            --color-bg-primary: #ffffff;
+            --color-bg-secondary: #f8fafc;
+            --color-text-primary: #0f172a;
+            --color-text-secondary: #475569;
+            --color-text-tertiary: #94a3b8;
+            --color-text-inverse: #ffffff;
+            --color-border: #cbd5e1;
+            --color-border-light: #e2e8f0;
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            --font-mono: 'JetBrains Mono', 'Courier New', Courier, monospace;
+            
+            /* Spacing */
+            --spacing-1: 0.25rem;
+            --spacing-2: 0.5rem;
+            --spacing-3: 0.75rem;
+            --spacing-4: 1rem;
+            --spacing-5: 1.25rem;
+            --spacing-6: 1.5rem;
+            --spacing-8: 2rem;
+            --spacing-10: 2.5rem;
+            --spacing-12: 3rem;
+            --spacing-16: 4rem;
+            --spacing-20: 5rem;
+            --spacing-24: 6rem;
+            
+            /* Shadows */
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            --shadow-focus: 0 0 0 3px rgba(59, 130, 246, 0.5);
+            
+            /* Border Radius */
+            --radius-sm: 0.25rem;
+            --radius-default: 0.375rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 0.75rem;
+            --radius-xl: 1rem;
+            
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--color-text-primary);
+            background-color: var(--color-bg-secondary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Navigation */
+        .navigation {
+            background-color: var(--color-bg-primary);
+            border-bottom: 1px solid var(--color-border-light);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-4);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 4rem;
+        }
+        
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--color-primary-600);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-2);
+        }
+        
+        .nav-menu {
+            display: none;
+            list-style: none;
+            gap: var(--spacing-2);
+            align-items: center;
+        }
+        
+        .nav-link {
+            color: var(--color-text-secondary);
+            text-decoration: none;
+            padding: var(--spacing-2) var(--spacing-3);
+            border-radius: var(--radius-default);
+            transition: all var(--transition-base);
+            font-weight: 500;
+            font-size: 0.875rem;
+        }
+        
+        .nav-link:hover {
+            color: var(--color-text-primary);
+            background-color: var(--color-neutral-100);
+        }
+        
+        .nav-link.active {
+            color: var(--color-primary-600);
+            background-color: var(--color-primary-50);
+        }
+        
+        .nav-mobile-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--color-text-secondary);
+            padding: var(--spacing-2);
+        }
+        
+        /* Header Section */
+        .header-section {
+            background: linear-gradient(135deg, var(--color-primary-50) 0%, var(--color-bg-primary) 100%);
+            padding: var(--spacing-16) var(--spacing-4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-12);
+            align-items: center;
+        }
+        
+        .header-content {
+            text-align: center;
+        }
+        
+        .header-title {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 800;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-6);
+            letter-spacing: -0.027em;
+        }
+        
+        .header-subtitle {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-8);
+            max-width: 42rem;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .header-image {
+            width: 100%;
+            max-width: 32rem;
+            height: auto;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            margin: 0 auto;
+            display: block;
+        }
+        
+        /* Main Content */
+        .main-content {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: var(--spacing-16) var(--spacing-4);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: var(--spacing-8);
+        }
+        
+        /* Form Section */
+        .form-card {
+            background-color: var(--color-bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border-light);
+        }
+        
+        .form-header {
+            margin-bottom: var(--spacing-8);
+        }
+        
+        .form-title {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-3);
+            letter-spacing: -0.024em;
+        }
+        
+        .form-description {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: var(--color-text-secondary);
+        }
+        
+        .form-group {
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .form-label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .form-label-required::after {
+            content: " *";
+            color: var(--color-error);
+        }
+        
+        .form-input,
+        .form-select,
+        .form-textarea {
+            width: 100%;
+            padding: var(--spacing-2) var(--spacing-3);
+            font-size: 1rem;
+            font-family: var(--font-primary);
+            color: var(--color-text-primary);
+            background-color: var(--color-bg-primary);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-default);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+        }
+        
+        .form-input:focus,
+        .form-select:focus,
+        .form-textarea:focus {
+            outline: none;
+            border-color: var(--color-primary-500);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+        
+        .form-input::placeholder,
+        .form-textarea::placeholder {
+            color: var(--color-text-tertiary);
+        }
+        
+        .form-input.error,
+        .form-select.error,
+        .form-textarea.error {
+            border-color: var(--color-error);
+        }
+        
+        .form-input.error:focus,
+        .form-select.error:focus,
+        .form-textarea.error:focus {
+            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+        }
+        
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .form-error {
+            display: none;
+            font-size: 0.875rem;
+            color: var(--color-error);
+            margin-top: var(--spacing-2);
+        }
+        
+        .form-error.visible {
+            display: block;
+        }
+        
+        .form-button {
+            width: 100%;
+            padding: var(--spacing-3) var(--spacing-6);
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: var(--font-primary);
+            color: var(--color-text-inverse);
+            background-color: var(--color-primary-600);
+            border: none;
+            border-radius: var(--radius-default);
+            box-shadow: var(--shadow-sm);
+            cursor: pointer;
+            transition: all var(--transition-base);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-2);
+        }
+        
+        .form-button:hover {
+            background-color: var(--color-primary-700);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .form-button:focus {
+            outline: 2px solid var(--color-primary-500);
+            outline-offset: 2px;
+        }
+        
+        .form-button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: var(--color-success-light);
+            border: 1px solid var(--color-success);
+            color: var(--color-success-dark);
+            padding: var(--spacing-4);
+            border-radius: var(--radius-default);
+            margin-bottom: var(--spacing-6);
+            animation: slideInUp 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .success-message.visible {
+            display: flex;
+            align-items: start;
+            gap: var(--spacing-3);
+        }
+        
+        .success-message-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: var(--spacing-1);
+        }
+        
+        .success-message-content p {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+        }
+        
+        /* Contact Section */
+        .contact-card {
+            background-color: var(--color-bg-primary);
+            border-radius: var(--radius-lg);
+            padding: var(--spacing-8);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--color-border-light);
+        }
+        
+        .contact-header {
+            margin-bottom: var(--spacing-6);
+        }
+        
+        .contact-title {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-2);
+            letter-spacing: -0.021em;
+        }
+        
+        .contact-description {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: var(--color-text-secondary);
+        }
+        
+        .contact-methods {
+            display: grid;
+            gap: var(--spacing-4);
+        }
+        
+        .contact-method {
+            display: flex;
+            align-items: start;
+            gap: var(--spacing-4);
+            padding: var(--spacing-4);
+            background-color: var(--color-neutral-50);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border-light);
+            transition: all var(--transition-base);
+        }
+        
+        .contact-method:hover {
+            border-color: var(--color-primary-500);
+            background-color: var(--color-primary-50);
+        }
+        
+        .contact-method-icon {
+            flex-shrink: 0;
+            width: 2.5rem;
+            height: 2.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-primary-100);
+            color: var(--color-primary-600);
+            border-radius: var(--radius-md);
+        }
+        
+        .contact-method-content h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+            margin-bottom: var(--spacing-1);
+        }
+        
+        .contact-method-content p {
+            font-size: 0.875rem;
+            color: var(--color-text-secondary);
+            margin-bottom: var(--spacing-2);
+        }
+        
+        .contact-method-link {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--color-primary-600);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-1);
+            transition: color var(--transition-base);
+        }
+        
+        .contact-method-link:hover {
+            color: var(--color-primary-700);
+        }
+        
+        /* Animations */
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (min-width: 768px) {
+            .nav-menu {
+                display: flex;
+            }
+            
+            .nav-mobile-toggle {
+                display: none;
+            }
+            
+            .header-title {
+                font-size: 3rem;
+                line-height: 1;
+            }
+            
+            .header-content {
+                text-align: left;
+            }
+            
+            .header-subtitle {
+                margin-left: 0;
+            }
+            
+            .header-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .content-grid {
+                grid-template-columns: 2fr 1fr;
+            }
+            
+            .form-button {
+                width: auto;
+                min-width: 12rem;
+            }
+            
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .nav-container {
+                padding: 0 var(--spacing-8);
+            }
+            
+            .main-content {
+                padding: var(--spacing-20) var(--spacing-8);
+            }
+            
+            .header-section {
+                padding: var(--spacing-20) var(--spacing-8);
+            }
+        }
+        
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+        
+        /* Focus visible for keyboard navigation */
+        :focus-visible {
+            outline: 2px solid var(--color-primary-500);
+            outline-offset: 2px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navigation" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="Synthetic Research Platform Home">
+                <i data-lucide="database" style="width: 24px; height: 24px;"></i>
+                <span>Synthetic Research</span>
+            </a>
+            
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="features.html" class="nav-link">Features</a></li>
+                <li><a href="pricing.html" class="nav-link">Pricing</a></li>
+                <li><a href="demo.html" class="nav-link active">Request Demo</a></li>
+            </ul>
+            
+            <button class="nav-mobile-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <i data-lucide="menu" style="width: 24px; height: 24px;"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Header Section -->
+    <header class="header-section">
+        <div class="header-container">
+            <div class="header-content">
+                <h1 class="header-title">Unlock the Future of Research Today</h1>
+                <p class="header-subtitle">
+                    Experience a personalized demonstration of our platform tailored to your team's size, research goals, and unique needs. See firsthand how we can accelerate your research process and deliver deeper insights.
+                </p>
+            </div>
+            <div>
+                <img 
+                    src="demo/images/abstract-data-insight-illustration.png" 
+                    alt="Abstract illustration showing data insights and analytics visualization" 
+                    class="header-image"
+                    loading="lazy"
+                />
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="content-grid">
+            <!-- Demo Request Form -->
+            <section aria-labelledby="form-title">
+                <div class="form-card">
+                    <div class="form-header">
+                        <h2 id="form-title" class="form-title">Request Your Demo</h2>
+                        <p class="form-description">
+                            Complete the form below and our team will reach out to schedule a personalized demonstration at your convenience.
+                        </p>
+                    </div>
+                    
+                    <div id="successMessage" class="success-message" role="alert" aria-live="polite">
+                        <i data-lucide="check-circle" style="width: 24px; height: 24px; flex-shrink: 0;"></i>
+                        <div class="success-message-content">
+                            <h3>Thank You for Your Interest!</h3>
+                            <p>Your demo request has been successfully submitted. Our team will contact you within 24 hours to schedule your personalized demonstration.</p>
+                        </div>
+                    </div>
+                    
+                    <form id="demoForm" novalidate>
+                        <div class="form-group">
+                            <label for="fullName" class="form-label form-label-required">Full Name</label>
+                            <input 
+                                type="text" 
+                                id="fullName" 
+                                name="fullName" 
+                                class="form-input" 
+                                placeholder="Enter your full name"
+                                required
+                                aria-required="true"
+                                aria-describedby="fullNameError"
+                            />
+                            <div id="fullNameError" class="form-error" role="alert"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="workEmail" class="form-label form-label-required">Work Email</label>
+                            <input 
+                                type="email" 
+                                id="workEmail" 
+                                name="workEmail" 
+                                class="form-input" 
+                                placeholder="you@company.com"
+                                required
+                                aria-required="true"
+                                aria-describedby="workEmailError"
+                            />
+                            <div id="workEmailError" class="form-error" role="alert"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="jobTitle" class="form-label">Job Title</label>
+                            <input 
+                                type="text" 
+                                id="jobTitle" 
+                                name="jobTitle" 
+                                class="form-input" 
+                                placeholder="e.g., UX Researcher, Product Manager"
+                                aria-describedby="jobTitleError"
+                            />
+                            <div id="jobTitleError" class="form-error" role="alert"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="companyName" class="form-label form-label-required">Company Name</label>
+                            <input 
+                                type="text" 
+                                id="companyName" 
+                                name="companyName" 
+                                class="form-input" 
+                                placeholder="Enter your company name"
+                                required
+                                aria-required="true"
+                                aria-describedby="companyNameError"
+                            />
+                            <div id="companyNameError" class="form-error" role="alert"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="teamSize" class="form-label">Team Size</label>
+                            <select 
+                                id="teamSize" 
+                                name="teamSize" 
+                                class="form-select"
+                                aria-describedby="teamSizeError"
+                            >
+                                <option value="">Select team size</option>
+                                <option value="1-5">1-5 people</option>
+                                <option value="6-10">6-10 people</option>
+                                <option value="11-25">11-25 people</option>
+                                <option value="26-50">26-50 people</option>
+                                <option value="51-100">51-100 people</option>
+                                <option value="100+">100+ people</option>
+                            </select>
+                            <div id="teamSizeError" class="form-error" role="alert"></div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="researchGoals" class="form-label">Specific Research Goals</label>
+                            <textarea 
+                                id="researchGoals" 
+                                name="researchGoals" 
+                                class="form-textarea" 
+                                placeholder="Tell us about your research needs, challenges, and what you hope to achieve with our platform..."
+                                aria-describedby="researchGoalsError"
+                            ></textarea>
+                            <div id="researchGoalsError" class="form-error" role="alert"></div>
+                        </div>
+                        
+                        <button type="submit" class="form-button" id="submitButton">
+                            <span>Request Demo</span>
+                            <i data-lucide="arrow-right" style="width: 20px; height: 20px;"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+            
+            <!-- Contact Alternatives -->
+            <aside aria-labelledby="contact-title">
+                <div class="contact-card">
+                    <div class="contact-header">
+                        <h2 id="contact-title" class="contact-title">Need Help?</h2>
+                        <p class="contact-description">
+                            Our team is here to assist you. Reach out directly through any of these channels.
+                        </p>
+                    </div>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>Sales Team</h4>
+                                <p>Get in touch with our sales team for enterprise inquiries.</p>
+                                <a href="mailto:sales@syntheticresearch.com" class="contact-method-link">
+                                    sales@syntheticresearch.com
+                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i data-lucide="phone" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>Support Line</h4>
+                                <p>Call our dedicated support team for immediate assistance.</p>
+                                <a href="tel:+1-800-555-0123" class="contact-method-link">
+                                    +1 (800) 555-0123
+                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>Live Chat</h4>
+                                <p>Chat with our team during business hours (9AM-5PM EST).</p>
+                                <a href="#" class="contact-method-link" onclick="return false;">
+                                    Start a conversation
+                                    <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+        
+        // Form validation and submission
+        const form = document.getElementById('demoForm');
+        const submitButton = document.getElementById('submitButton');
+        const successMessage = document.getElementById('successMessage');
+        
+        // Validation rules
+        const validationRules = {
+            fullName: {
+                required: true,
+                minLength: 2,
+                message: 'Please enter your full name (at least 2 characters).'
+            },
+            workEmail: {
+                required: true,
+                pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: 'Please enter a valid email address.'
+            },
+            companyName: {
+                required: true,
+                minLength: 2,
+                message: 'Please enter your company name (at least 2 characters).'
+            }
+        };
+        
+        // Validate individual field
+        function validateField(fieldName, value) {
+            const rules = validationRules[fieldName];
+            if (!rules) return { isValid: true };
+            
+            // Check required
+            if (rules.required && !value.trim()) {
+                return {
+                    isValid: false,
+                    message: rules.message
+                };
+            }
+            
+            // Check minimum length
+            if (rules.minLength && value.trim().length < rules.minLength) {
+                return {
+                    isValid: false,
+                    message: rules.message
+                };
+            }
+            
+            // Check pattern (for email)
+            if (rules.pattern && !rules.pattern.test(value.trim())) {
+                return {
+                    isValid: false,
+                    message: rules.message
+                };
+            }
+            
+            return { isValid: true };
+        }
+        
+        // Show error for a field
+        function showError(fieldName, message) {
+            const field = document.getElementById(fieldName);
+            const errorElement = document.getElementById(fieldName + 'Error');
+            
+            field.classList.add('error');
+            errorElement.textContent = message;
+            errorElement.classList.add('visible');
+        }
+        
+        // Clear error for a field
+        function clearError(fieldName) {
+            const field = document.getElementById(fieldName);
+            const errorElement = document.getElementById(fieldName + 'Error');
+            
+            field.classList.remove('error');
+            errorElement.textContent = '';
+            errorElement.classList.remove('visible');
+        }
+        
+        // Real-time validation on blur
+        const fieldsToValidate = ['fullName', 'workEmail', 'companyName'];
+        fieldsToValidate.forEach(fieldName => {
+            const field = document.getElementById(fieldName);
+            field.addEventListener('blur', function() {
+                const validation = validateField(fieldName, this.value);
+                if (!validation.isValid) {
+                    showError(fieldName, validation.message);
+                } else {
+                    clearError(fieldName);
+                }
+            });
+            
+            // Clear error on input
+            field.addEventListener('input', function() {
+                if (this.classList.contains('error')) {
+                    clearError(fieldName);
+                }
+            });
+        });
+        
+        // Form submission
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate all required fields
+            let isFormValid = true;
+            const formData = {};
+            
+            fieldsToValidate.forEach(fieldName => {
+                const field = document.getElementById(fieldName);
+                const value = field.value;
+                const validation = validateField(fieldName, value);
+                
+                formData[fieldName] = value;
+                
+                if (!validation.isValid) {
+                    showError(fieldName, validation.message);
+                    isFormValid = false;
+                } else {
+                    clearError(fieldName);
+                }
+            });
+            
+            // Add optional fields to form data
+            formData.jobTitle = document.getElementById('jobTitle').value;
+            formData.teamSize = document.getElementById('teamSize').value;
+            formData.researchGoals = document.getElementById('researchGoals').value;
+            
+            if (isFormValid) {
+                // Disable submit button
+                submitButton.disabled = true;
+                submitButton.innerHTML = '<span>Submitting...</span>';
+                
+                // Simulate API call
+                setTimeout(() => {
+                    // Hide form
+                    form.style.display = 'none';
+                    
+                    // Show success message
+                    successMessage.classList.add('visible');
+                    
+                    // Re-initialize icons in success message
+                    lucide.createIcons();
+                    
+                    // Scroll to success message
+                    successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Log form data (in production, this would be sent to a server)
+                    console.log('Form submitted with data:', formData);
+                    
+                    // Reset button after showing success
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = '<span>Request Demo</span><i data-lucide="arrow-right" style="width: 20px; height: 20px;"></i>';
+                    lucide.createIcons();
+                }, 1000);
+            } else {
+                // Scroll to first error
+                const firstError = document.querySelector('.form-input.error, .form-select.error, .form-textarea.error');
+                if (firstError) {
+                    firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    firstError.focus();
+                }
+            }
+        });
+    </script>
+</body>
+</html>
