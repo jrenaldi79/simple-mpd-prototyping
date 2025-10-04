@@ -1,0 +1,1321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform - Next-Generation Synthetic User Research Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-50: #eff6ff;
+            --primary-100: #dbeafe;
+            --primary-500: #3b82f6;
+            --primary-600: #2563eb;
+            --primary-700: #1d4ed8;
+            --primary-800: #1e40af;
+            
+            --secondary-600: #9333ea;
+            --accent-500: #06b6d4;
+            
+            --neutral-50: #f8fafc;
+            --neutral-100: #f1f5f9;
+            --neutral-200: #e2e8f0;
+            --neutral-300: #cbd5e1;
+            --neutral-400: #94a3b8;
+            --neutral-500: #64748b;
+            --neutral-600: #475569;
+            --neutral-700: #334155;
+            --neutral-800: #1e293b;
+            --neutral-900: #0f172a;
+            
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-tertiary: #f1f5f9;
+            
+            --text-primary: #0f172a;
+            --text-secondary: #475569;
+            --text-tertiary: #94a3b8;
+            --text-inverse: #ffffff;
+            
+            --border-light: #e2e8f0;
+            --border-default: #cbd5e1;
+            --border-focus: #3b82f6;
+            
+            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --shadow-default: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+        }
+
+        /* Navigation */
+        .nav {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-default);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 4rem;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary-600);
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: none;
+            gap: 0.5rem;
+        }
+
+        .nav-menu.active {
+            display: flex;
+            position: absolute;
+            top: 4rem;
+            left: 0;
+            right: 0;
+            flex-direction: column;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
+            padding: 1rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .nav-link {
+            padding: 0.5rem 1rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            border-radius: 0.375rem;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            font-weight: 500;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+            background-color: var(--bg-tertiary);
+        }
+
+        .nav-link.active {
+            color: var(--primary-600);
+            background-color: var(--primary-50);
+        }
+
+        .nav-toggle {
+            display: block;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .nav-toggle span {
+            display: block;
+            width: 1.5rem;
+            height: 2px;
+            background-color: var(--text-primary);
+            margin: 0.25rem 0;
+            transition: all 200ms;
+        }
+
+        @media (min-width: 768px) {
+            .nav-container {
+                padding: 0 2rem;
+            }
+
+            .nav-menu {
+                display: flex;
+                flex-direction: row;
+                position: static;
+                border: none;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            .nav-toggle {
+                display: none;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-50) 0%, var(--neutral-50) 100%);
+            padding: 4rem 1rem;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.027em;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: var(--text-secondary);
+            max-width: 768px;
+            margin: 0 auto 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero {
+                padding: 6rem 2rem;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+                line-height: 1;
+            }
+        }
+
+        /* Tabs */
+        .tabs-section {
+            padding: 4rem 1rem;
+            background-color: var(--bg-secondary);
+        }
+
+        .tabs-container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .tabs-list {
+            display: flex;
+            gap: 0.5rem;
+            border-bottom: 2px solid var(--border-light);
+            margin-bottom: 2rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            background: none;
+            border: none;
+            border-bottom: 2px solid transparent;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+            margin-bottom: -2px;
+        }
+
+        .tab-button:hover {
+            color: var(--text-primary);
+            background-color: var(--bg-tertiary);
+        }
+
+        .tab-button.active {
+            color: var(--primary-600);
+            border-bottom-color: var(--primary-600);
+        }
+
+        .tab-button:focus {
+            outline: 2px solid var(--border-focus);
+            outline-offset: 2px;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 300ms ease-in;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .card-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-default);
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .card-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, var(--primary-600), var(--secondary-600));
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .card-icon svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: var(--text-inverse);
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-description {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+        }
+
+        /* Feature Image */
+        .feature-image-section {
+            margin-bottom: 3rem;
+        }
+
+        .feature-image {
+            width: 100%;
+            border-radius: 0.75rem;
+            box-shadow: var(--shadow-lg);
+            margin-bottom: 1rem;
+        }
+
+        .feature-caption {
+            font-size: 0.875rem;
+            color: var(--text-tertiary);
+            text-align: center;
+            font-style: italic;
+        }
+
+        /* Section */
+        .section {
+            padding: 4rem 1rem;
+        }
+
+        .section-container {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: var(--text-secondary);
+            max-width: 768px;
+            margin: 0 auto;
+        }
+
+        @media (min-width: 768px) {
+            .section {
+                padding: 6rem 2rem;
+            }
+        }
+
+        /* Stats Grid */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .stat-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary-600);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* Badge */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.125rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            border-radius: 0.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .badge-primary {
+            background-color: var(--primary-100);
+            color: var(--primary-800);
+        }
+
+        .badge-secondary {
+            background-color: #f3e8ff;
+            color: #6b21a8;
+        }
+
+        .badge-accent {
+            background-color: #cffafe;
+            color: #155e75;
+        }
+
+        /* Button */
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            font-weight: 500;
+            border-radius: 0.375rem;
+            border: none;
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+        }
+
+        .button-primary {
+            background-color: var(--primary-600);
+            color: var(--text-inverse);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .button-primary:hover {
+            background-color: var(--primary-700);
+            box-shadow: var(--shadow-md);
+        }
+
+        .button-secondary {
+            background-color: var(--neutral-100);
+            color: var(--text-primary);
+            border: 1px solid var(--border-light);
+        }
+
+        .button-secondary:hover {
+            background-color: var(--neutral-200);
+        }
+
+        .button:focus {
+            outline: 2px solid var(--border-focus);
+            outline-offset: 2px;
+        }
+
+        /* Integration Grid */
+        .integration-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 640px) {
+            .integration-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .integration-grid {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        .integration-item {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .integration-item:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .integration-icon {
+            width: 3rem;
+            height: 3rem;
+            margin: 0 auto 0.5rem;
+            background-color: var(--neutral-100);
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .integration-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* Chart Placeholder */
+        .chart-placeholder {
+            background: linear-gradient(135deg, var(--neutral-50) 0%, var(--neutral-100) 100%);
+            border: 2px dashed var(--border-default);
+            border-radius: 0.75rem;
+            padding: 3rem 1rem;
+            text-align: center;
+            margin: 1.5rem 0;
+        }
+
+        .chart-placeholder-text {
+            color: var(--text-tertiary);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--neutral-900);
+            color: var(--text-inverse);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            opacity: 0.8;
+        }
+
+        /* Utility Classes */
+        .mb-1 { margin-bottom: 0.25rem; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 0.75rem; }
+        .mb-4 { margin-bottom: 1rem; }
+        .mb-6 { margin-bottom: 1.5rem; }
+        .mb-8 { margin-bottom: 2rem; }
+
+        .mt-2 { margin-top: 0.5rem; }
+        .mt-4 { margin-top: 1rem; }
+        .mt-6 { margin-top: 1.5rem; }
+
+        .text-center { text-align: center; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo" aria-label="Home">SynthResearch</a>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <div class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="platform.html" class="nav-link active" aria-current="page">Platform</a>
+                <a href="use-cases.html" class="nav-link">Use Cases</a>
+                <a href="pricing.html" class="nav-link">Pricing</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Platform Overview Header -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1 class="hero-title">Advanced Synthetic Simulation Technology</h1>
+            <p class="hero-subtitle">
+                Our platform combines cutting-edge AI, behavioral modeling, and statistical rigor to create 
+                a comprehensive research environment that delivers both qualitative insights and quantitative validation.
+            </p>
+        </div>
+    </section>
+
+    <!-- Tabbed Interface: Qualitative, Quantitative, Integration -->
+    <section class="tabs-section">
+        <div class="tabs-container">
+            <div role="tablist" aria-label="Platform features" class="tabs-list">
+                <button 
+                    role="tab" 
+                    aria-selected="true" 
+                    aria-controls="qualitative-panel" 
+                    id="qualitative-tab"
+                    class="tab-button active"
+                    tabindex="0">
+                    Qualitative Tools
+                </button>
+                <button 
+                    role="tab" 
+                    aria-selected="false" 
+                    aria-controls="quantitative-panel" 
+                    id="quantitative-tab"
+                    class="tab-button"
+                    tabindex="-1">
+                    Quantitative Validation
+                </button>
+                <button 
+                    role="tab" 
+                    aria-selected="false" 
+                    aria-controls="integration-panel" 
+                    id="integration-tab"
+                    class="tab-button"
+                    tabindex="-1">
+                    Integration Ecosystem
+                </button>
+            </div>
+
+            <!-- Qualitative Tools Panel -->
+            <div 
+                role="tabpanel" 
+                id="qualitative-panel" 
+                aria-labelledby="qualitative-tab"
+                class="tab-content active">
+                
+                <div class="section-header">
+                    <h2 class="section-title">Qualitative Research Tools</h2>
+                    <p class="section-subtitle">
+                        Generate rich, contextual insights through AI-powered synthetic interviews, 
+                        persona generation, and behavioral path mapping.
+                    </p>
+                </div>
+
+                <div class="feature-image-section">
+                    <img 
+                        src="platform/images/qualitative-tools-composite.png" 
+                        alt="Composite visualization of qualitative research tools including synthetic interviews, persona cards, and behavioral mapping interfaces"
+                        class="feature-image"
+                        loading="lazy">
+                    <p class="feature-caption">Interactive qualitative research toolkit overview</p>
+                </div>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-primary">Core Feature</span>
+                        <h3 class="card-title">Synthetic Interviews</h3>
+                        <p class="card-description">
+                            Conduct natural, contextual conversations with AI-powered synthetic personas 
+                            that respond authentically based on demographic, psychographic, and behavioral parameters.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M22 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-secondary">AI-Powered</span>
+                        <h3 class="card-title">Persona Generation</h3>
+                        <p class="card-description">
+                            Automatically generate detailed, data-backed user personas complete with 
+                            motivations, pain points, goals, and behavioral patterns.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18"/>
+                                <path d="m19 9-5 5-4-4-3 3"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-accent">Advanced</span>
+                        <h3 class="card-title">Behavioral Path Mapping</h3>
+                        <p class="card-description">
+                            Visualize user journey paths, decision points, and behavioral patterns 
+                            to understand how synthetic users navigate through experiences.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <path d="M12 17h.01"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-primary">Insight Engine</span>
+                        <h3 class="card-title">Sentiment Analysis</h3>
+                        <p class="card-description">
+                            Extract emotional context and sentiment from synthetic responses to identify 
+                            satisfaction drivers and friction points.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-secondary">Reporting</span>
+                        <h3 class="card-title">Thematic Coding</h3>
+                        <p class="card-description">
+                            Automatically identify recurring themes, patterns, and insights across 
+                            hundreds of synthetic interactions using NLP-powered analysis.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2"/>
+                                <line x1="9" x2="15" y1="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-accent">Collaboration</span>
+                        <h3 class="card-title">Observation Sessions</h3>
+                        <p class="card-description">
+                            Record and share synthetic user sessions with team members for collaborative 
+                            analysis and stakeholder presentations.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quantitative Validation Panel -->
+            <div 
+                role="tabpanel" 
+                id="quantitative-panel" 
+                aria-labelledby="quantitative-tab"
+                class="tab-content">
+                
+                <div class="section-header">
+                    <h2 class="section-title">Quantitative Validation Module</h2>
+                    <p class="section-subtitle">
+                        Validate qualitative findings with statistically rigorous quantitative testing, 
+                        A/B simulation, and confidence measurement.
+                    </p>
+                </div>
+
+                <div class="feature-image-section">
+                    <img 
+                        src="platform/images/quantitative-metrics-visual.png" 
+                        alt="Dashboard showing quantitative metrics including charts, graphs, statistical confidence intervals, and A/B test results"
+                        class="feature-image"
+                        loading="lazy">
+                    <p class="feature-caption">Real-time quantitative analytics dashboard</p>
+                </div>
+
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18"/>
+                                <rect width="4" height="7" x="7" y="10" rx="1"/>
+                                <rect width="4" height="12" x="15" y="5" rx="1"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-primary">Testing</span>
+                        <h3 class="card-title">A/B Testing Simulation</h3>
+                        <p class="card-description">
+                            Run parallel experiments on synthetic populations to test design variations, 
+                            messaging, and feature configurations with statistical rigor.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"/>
+                                <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                                <path d="M12 2v2"/>
+                                <path d="M12 20v2"/>
+                                <path d="m4.93 4.93 1.41 1.41"/>
+                                <path d="m17.66 17.66 1.41 1.41"/>
+                                <path d="M2 12h2"/>
+                                <path d="M20 12h2"/>
+                                <path d="m6.34 17.66-1.41 1.41"/>
+                                <path d="m19.07 4.93-1.41 1.41"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-accent">Precision</span>
+                        <h3 class="card-title">Statistical Confidence</h3>
+                        <p class="card-description">
+                            Measure confidence intervals, p-values, and statistical significance 
+                            to ensure findings are reliable and actionable.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-secondary">Analytics</span>
+                        <h3 class="card-title">Behavioral Metrics</h3>
+                        <p class="card-description">
+                            Track conversion rates, task completion times, error rates, and engagement 
+                            metrics across synthetic user populations.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-primary">Forecasting</span>
+                        <h3 class="card-title">Predictive Modeling</h3>
+                        <p class="card-description">
+                            Use synthetic data to build predictive models for user behavior, 
+                            feature adoption, and market response.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21.21 15.89A10 10 0 1 1 8 2.83"/>
+                                <path d="M22 12A10 10 0 0 0 12 2v10z"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-accent">Segmentation</span>
+                        <h3 class="card-title">Cohort Analysis</h3>
+                        <p class="card-description">
+                            Segment synthetic populations by demographics, behaviors, and attributes 
+                            to identify patterns across different user groups.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 3v18h18"/>
+                                <path d="m19 9-5 5-4-4-3 3"/>
+                                <circle cx="7" cy="13" r="1"/>
+                                <circle cx="11" cy="9" r="1"/>
+                                <circle cx="14" cy="14" r="1"/>
+                                <circle cx="19" cy="9" r="1"/>
+                            </svg>
+                        </div>
+                        <span class="badge badge-secondary">Visualization</span>
+                        <h3 class="card-title">Data Visualization</h3>
+                        <p class="card-description">
+                            Generate interactive charts, heatmaps, and dashboards to communicate 
+                            quantitative findings to stakeholders.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Sample Chart Placeholders -->
+                <div class="stats-grid mt-6">
+                    <div class="stat-card">
+                        <div class="stat-value">94.7%</div>
+                        <div class="stat-label">Statistical Confidence</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">1,247</div>
+                        <div class="stat-label">Synthetic Tests Run</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">3.2s</div>
+                        <div class="stat-label">Avg Response Time</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value">87%</div>
+                        <div class="stat-label">Task Completion Rate</div>
+                    </div>
+                </div>
+
+                <div class="chart-placeholder mt-6">
+                    <p class="chart-placeholder-text">
+                        📊 Interactive Chart: Confidence Interval Distribution
+                    </p>
+                </div>
+
+                <div class="chart-placeholder">
+                    <p class="chart-placeholder-text">
+                        📈 Interactive Chart: A/B Test Performance Comparison
+                    </p>
+                </div>
+            </div>
+
+            <!-- Integration Ecosystem Panel -->
+            <div 
+                role="tabpanel" 
+                id="integration-panel" 
+                aria-labelledby="integration-tab"
+                class="tab-content">
+                
+                <div class="section-header">
+                    <h2 class="section-title">Seamless Integration Ecosystem</h2>
+                    <p class="section-subtitle">
+                        Connect with your existing workflow tools and platforms for a unified 
+                        research and design experience.
+                    </p>
+                </div>
+
+                <div class="feature-image-section">
+                    <img 
+                        src="platform/images/integration-ecosystem.png" 
+                        alt="Diagram showing integration connections between the platform and various tools including Figma, Sketch, JIRA, Slack, and other popular applications"
+                        class="feature-image"
+                        loading="lazy">
+                    <p class="feature-caption">Complete integration ecosystem overview</p>
+                </div>
+
+                <div class="integration-grid">
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect width="18" height="18" x="3" y="3" rx="2"/>
+                                <path d="M7 7h10"/>
+                                <path d="M7 12h10"/>
+                                <path d="M7 17h10"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Figma</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2v20"/>
+                                <path d="m15 5-3 3-3-3"/>
+                                <path d="m9 19 3-3 3 3"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Sketch</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect width="18" height="18" x="3" y="4" rx="2" ry="2"/>
+                                <line x1="16" x2="16" y1="2" y2="6"/>
+                                <line x1="8" x2="8" y1="2" y2="6"/>
+                                <line x1="3" x2="21" y1="10" y2="10"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">JIRA</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Slack</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect width="20" height="16" x="2" y="4" rx="2"/>
+                                <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Email</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/>
+                                <path d="M14 2v4a2 2 0 0 0 2 2h4"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Notion</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Confluence</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="4"/>
+                                <line x1="21.17" x2="12" y1="8" y2="8"/>
+                                <line x1="3.95" x2="8.54" y1="6.06" y2="14"/>
+                                <line x1="10.88" x2="15.46" y1="21.94" y2="14"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Airtable</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                                <rect width="20" height="14" x="2" y="6" rx="2"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Miro</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 17v1c0 .5-.5 1-1 1H3c-.5 0-1-.5-1-1v-1"/>
+                                <polygon points="12 2 17 7 21 7 12 22 3 7 7 7 12 2"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Zapier</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                                <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                                <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" x2="12" y1="22.08" y2="12"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">API Access</div>
+                    </div>
+
+                    <div class="integration-item">
+                        <div class="integration-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 16v-4"/>
+                                <path d="M12 8h.01"/>
+                            </svg>
+                        </div>
+                        <div class="integration-name">Webhooks</div>
+                    </div>
+                </div>
+
+                <div class="card-grid mt-8">
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Enterprise Security</h3>
+                        <p class="card-description">
+                            SSO, SAML 2.0, OAuth 2.0 support with enterprise-grade encryption 
+                            and compliance with SOC 2, GDPR, and HIPAA standards.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">RESTful API</h3>
+                        <p class="card-description">
+                            Comprehensive REST API with full documentation, SDKs for popular 
+                            languages, and webhook support for real-time updates.
+                        </p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <h3 class="card-title">Custom Integrations</h3>
+                        <p class="card-description">
+                            Work with our team to build custom integrations for your proprietary 
+                            tools and internal systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Flow Diagram Section -->
+    <section class="section" style="background-color: var(--bg-primary);">
+        <div class="section-container">
+            <div class="section-header">
+                <h2 class="section-title">How Data Flows Through the Platform</h2>
+                <p class="section-subtitle">
+                    Understand the complete research pipeline from input to insight, 
+                    with both qualitative depth and quantitative validation.
+                </p>
+            </div>
+
+            <div class="feature-image-section">
+                <img 
+                    src="platform/images/data-flow-diagram.png" 
+                    alt="Detailed data flow diagram showing the research pipeline from input parameters through synthetic simulation to qualitative insights and quantitative validation outputs"
+                    class="feature-image"
+                    loading="lazy">
+                <p class="feature-caption">End-to-end data flow architecture</p>
+            </div>
+
+            <div class="card-grid mt-8">
+                <div class="card">
+                    <span class="badge badge-primary">Step 1</span>
+                    <h3 class="card-title">Research Input</h3>
+                    <p class="card-description">
+                        Define your research questions, target demographics, behavioral parameters, 
+                        and specific scenarios you want to test.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="badge badge-primary">Step 2</span>
+                    <h3 class="card-title">AI Processing</h3>
+                    <p class="card-description">
+                        Our advanced AI models generate synthetic personas and simulate realistic 
+                        behavioral patterns based on your inputs.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="badge badge-primary">Step 3</span>
+                    <h3 class="card-title">Simulation Engine</h3>
+                    <p class="card-description">
+                        Synthetic users interact with your designs, prototypes, or concepts in 
+                        a controlled environment that mimics real-world conditions.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="badge badge-accent">Step 4</span>
+                    <h3 class="card-title">Qualitative Analysis</h3>
+                    <p class="card-description">
+                        Extract rich insights, quotes, themes, and behavioral patterns from 
+                        synthetic interactions and interviews.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="badge badge-accent">Step 5</span>
+                    <h3 class="card-title">Quantitative Validation</h3>
+                    <p class="card-description">
+                        Validate findings with statistical analysis, A/B tests, and confidence 
+                        measurements across large synthetic populations.
+                    </p>
+                </div>
+
+                <div class="card">
+                    <span class="badge badge-secondary">Step 6</span>
+                    <h3 class="card-title">Actionable Insights</h3>
+                    <p class="card-description">
+                        Receive comprehensive reports combining qualitative depth with quantitative 
+                        rigor, ready to inform product decisions.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p class="footer-text">© 2024 SynthResearch. Next-Generation Synthetic User Research Platform.</p>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.contains('active');
+            navMenu.classList.toggle('active');
+            navToggle.setAttribute('aria-expanded', !isOpen);
+        });
+
+        // Tab Functionality
+        const tabs = document.querySelectorAll('[role="tab"]');
+        const tabPanels = document.querySelectorAll('[role="tabpanel"]');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Remove active state from all tabs and panels
+                tabs.forEach(t => {
+                    t.classList.remove('active');
+                    t.setAttribute('aria-selected', 'false');
+                    t.setAttribute('tabindex', '-1');
+                });
+
+                tabPanels.forEach(panel => {
+                    panel.classList.remove('active');
+                });
+
+                // Add active state to clicked tab and corresponding panel
+                tab.classList.add('active');
+                tab.setAttribute('aria-selected', 'true');
+                tab.setAttribute('tabindex', '0');
+
+                const panelId = tab.getAttribute('aria-controls');
+                const panel = document.getElementById(panelId);
+                panel.classList.add('active');
+            });
+
+            // Keyboard navigation for tabs
+            tab.addEventListener('keydown', (e) => {
+                let index = Array.from(tabs).indexOf(tab);
+
+                if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    index = (index + 1) % tabs.length;
+                    tabs[index].click();
+                    tabs[index].focus();
+                }
+
+                if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    index = (index - 1 + tabs.length) % tabs.length;
+                    tabs[index].click();
+                    tabs[index].focus();
+                }
+
+                if (e.key === 'Home') {
+                    e.preventDefault();
+                    tabs[0].click();
+                    tabs[0].focus();
+                }
+
+                if (e.key === 'End') {
+                    e.preventDefault();
+                    tabs[tabs.length - 1].click();
+                    tabs[tabs.length - 1].focus();
+                }
+            });
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Respect prefers-reduced-motion
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        if (prefersReducedMotion.matches) {
+            document.querySelectorAll('*').forEach(el => {
+                el.style.animation = 'none';
+                el.style.transition = 'none';
+            });
+        }
+    </script>
+</body>
+</html>
