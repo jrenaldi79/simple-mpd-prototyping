@@ -1,0 +1,227 @@
+{
+  "prototype_name": "Synthetic User Research SaaS",
+  "theme": "Professional B2B SaaS, modern, data-driven, trustworthy",
+  "created_date": "2023-10-05",
+  "target_audience": "Product managers and UX researchers in SaaS companies",
+  "color_palette": {
+    "primary": {
+      "hex": "#3b82f6",
+      "tailwind": "blue-500",
+      "usage": "Primary CTAs, links, brand elements"
+    },
+    "secondary": {
+      "hex": "#10b981",
+      "tailwind": "emerald-500",
+      "usage": "Secondary actions, success indicators, growth elements"
+    },
+    "accent": {
+      "hex": "#8b5cf6",
+      "tailwind": "purple-500",
+      "usage": "Highlights, notifications, data visualizations"
+    },
+    "semantic": {
+      "success": "#10b981",
+      "warning": "#f59e0b",
+      "error": "#ef4444",
+      "info": "#3b82f6"
+    },
+    "neutrals": {
+      "background": "#f8fafc",
+      "surface": "#ffffff",
+      "border": "#e2e8f0",
+      "text_primary": "#0f172a",
+      "text_secondary": "#64748b",
+      "text_tertiary": "#94a3b8"
+    }
+  },
+  "typography": {
+    "font_family": "Inter",
+    "cdn_link": "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap",
+    "weights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700
+    },
+    "scale": {
+      "xs": "0.75rem / 12px",
+      "sm": "0.875rem / 14px",
+      "base": "1rem / 16px",
+      "lg": "1.125rem / 18px",
+      "xl": "1.25rem / 20px",
+      "2xl": "1.5rem / 24px",
+      "3xl": "1.875rem / 30px",
+      "4xl": "2.25rem / 36px",
+      "5xl": "3rem / 48px",
+      "6xl": "3.75rem / 60px"
+    },
+    "line_heights": {
+      "tight": "1.25",
+      "normal": "1.5",
+      "relaxed": "1.75"
+    }
+  },
+  "icon_system": {
+    "library": "Lucide",
+    "cdn_link": "https://unpkg.com/lucide@latest",
+    "initialization": "lucide.createIcons()",
+    "approach": "Inline SVG via data-lucide attributes",
+    "size_default": "24",
+    "stroke_width": "2",
+    "color_usage": "Inherit from parent or use theme colors",
+    "common_icons": {
+      "navigation": ["menu", "x", "home", "chevron-down", "chevron-right"],
+      "actions": ["plus", "edit", "trash-2", "download", "upload", "save"],
+      "status": ["check-circle", "alert-circle", "alert-triangle", "info", "x-circle"],
+      "social": ["github", "twitter", "linkedin", "facebook", "instagram"],
+      "interface": ["search", "settings", "user", "bell", "mail", "calendar"],
+      "data": ["trending-up", "bar-chart", "pie-chart", "activity", "database", "users", "user-check"]
+    },
+    "usage_example": "<i data-lucide=\"heart\" class=\"w-6 h-6 text-red-500\"></i>",
+    "sizing_guide": {
+      "w-4 h-4": "16px - inline with text",
+      "w-5 h-5": "20px - buttons, small UI",
+      "w-6 h-6": "24px - standard icons",
+      "w-8 h-8": "32px - feature icons",
+      "w-12 h-12": "48px - hero/large icons"
+    }
+  },
+  "imagery": {
+    "usage_context": "web-app",
+    "generation_guidelines": {
+      "when_to_generate": [
+        "Hero backgrounds for landing pages",
+        "Feature illustrations for key sections sparingly"
+      ],
+      "when_to_skip": [
+        "Dashboards and data visualizations - use icons and charts",
+        "Form-based interfaces and admin panels",
+        "Most UI elements - prioritize icons for clarity"
+      ],
+      "style_preferences": [
+        "Modern and clean aesthetic",
+        "Data-driven, abstract representations",
+        "Professional quality matching blue/emerald palette",
+        "Minimalistic, non-distracting"
+      ],
+      "aspect_ratios": {
+        "hero_background": "16:9",
+        "feature_illustration": "4:3",
+        "profile_photo": "1:1",
+        "content_image": "16:9",
+        "background_pattern": "seamless/tileable"
+      }
+    },
+    "prompt_template": "Abstract data visualization, professional B2B style, blue and emerald colors, modern clean, [composition], [aspect ratio], high quality",
+    "file_path_convention": "synthetic-user-research-saas/images/[descriptive-name].png"
+  },
+  "spacing": {
+    "system": "Tailwind default scale (4px base unit)",
+    "container_max_width": "1280px (max-w-7xl)",
+    "section_vertical_padding": "py-16 md:py-24",
+    "section_horizontal_padding": "px-4 sm:px-6 lg:px-8",
+    "component_padding": {
+      "button": "px-6 py-3",
+      "card": "p-6 md:p-8",
+      "input": "px-4 py-3"
+    }
+  },
+  "effects": {
+    "glassmorphism": {
+      "css_class": "glass",
+      "properties": {
+        "background": "rgba(255, 255, 255, 0.8)",
+        "backdrop_filter": "blur(10px) saturate(180%)",
+        "border": "1px solid rgba(255, 255, 255, 0.3)"
+      },
+      "usage": "Navigation bars, modal overlays, dashboard cards"
+    },
+    "shadows": {
+      "sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      "base": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06)",
+      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)",
+      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)",
+      "premium": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 10px 15px -3px rgba(0, 0, 0, 0.1)"
+    },
+    "transitions": {
+      "duration_fast": "150ms",
+      "duration_base": "300ms",
+      "duration_slow": "500ms",
+      "easing": "cubic-bezier(0.4, 0, 0.2, 1)",
+      "hover_scale": "1.02",
+      "hover_scale_button": "1.05"
+    },
+    "gradients": {
+      "background_primary": "bg-gradient-to-br from-slate-50 to-blue-50",
+      "background_hero": "bg-gradient-to-br from-blue-50 via-emerald-50 to-purple-50",
+      "button_primary": "bg-gradient-to-r from-blue-600 to-blue-700",
+      "accent": "bg-gradient-to-br from-blue-500 to-purple-600"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": {
+        "classes": "bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg font-medium",
+        "usage": "Primary CTAs, main actions"
+      },
+      "secondary": {
+        "classes": "bg-white hover:bg-slate-50 text-slate-900 px-6 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg border border-slate-200 font-medium",
+        "usage": "Secondary actions, alternative choices"
+      },
+      "text": {
+        "classes": "text-blue-600 hover:text-blue-700 transition-colors duration-200 font-medium",
+        "usage": "Tertiary actions, links, subtle interactions"
+      }
+    },
+    "cards": {
+      "base": {
+        "classes": "glass shadow-base rounded-xl p-6 transition-all duration-300",
+        "usage": "Content containers, feature showcases"
+      },
+      "interactive": {
+        "classes": "glass shadow-md rounded-xl p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300 cursor-pointer",
+        "usage": "Clickable cards, data panels, research items"
+      }
+    },
+    "navigation": {
+      "container": "glass shadow-md fixed top-0 left-0 right-0 z-50",
+      "height": "h-16",
+      "link": "text-slate-700 hover:text-blue-600 transition-colors duration-200 font-medium",
+      "link_active": "text-blue-600 font-semibold border-b-2 border-blue-600"
+    },
+    "forms": {
+      "input": "w-full px-4 py-3 rounded-lg border border-slate-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all outline-none bg-white",
+      "label": "block text-sm font-medium text-slate-700 mb-2",
+      "error": "text-sm text-red-600 mt-1"
+    }
+  },
+  "layout": {
+    "responsive_breakpoints": {
+      "sm": "640px - Large phones, small tablets",
+      "md": "768px - Tablets",
+      "lg": "1024px - Laptops, small desktops",
+      "xl": "1280px - Large desktops",
+      "2xl": "1536px - Extra large screens"
+    },
+    "grid_patterns": {
+      "2_column": "grid-cols-1 md:grid-cols-2 gap-6",
+      "3_column": "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6",
+      "4_column": "grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+    },
+    "spacing_scale": {
+      "section_gap": "gap-16 md:gap-24",
+      "component_gap": "gap-6 md:gap-8",
+      "element_gap": "gap-4"
+    }
+  },
+  "references_analyzed": [
+    "https://www.userinterviews.com/"
+  ],
+  "design_rationale": {
+    "color_choices": "Blue (#3b82f6) for trust and professionalism, emerald (#10b981) for growth and success inspired by User Interviews' palette, purple accent for modern data-driven feel.",
+    "typography_choice": "Inter selected for its readability and modern sans-serif style, ideal for B2B SaaS interfaces with data-heavy content.",
+    "icon_strategy": "Lucide library chosen for its comprehensive set of modern icons, including research-specific ones like users and charts, ensuring consistency in data visualization.",
+    "imagery_approach": "As a web app, focus on icons over generated images to maintain clarity and performance; minimal AI-generated illustrations for key features only, styled to match the professional theme.",
+    "effects_rationale": "Subtle glassmorphism and shadows for depth without distraction, smooth transitions for professional interactions, gradients incorporating primary colors for modern appeal."
+  }
+}
