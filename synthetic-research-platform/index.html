@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Next-Generation Synthetic User Research Platform - Transform qualitative insights into quantitative validation in a single stateful environment">
+    <title>Synthetic Research Platform - Revolutionary User Research</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* CSS Reset & Base Styles */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #0f172a;
+            background-color: #ffffff;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        @media (min-width: 1024px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            height: 4rem;
+        }
+
+        .nav-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 100%;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #2563eb;
+            text-decoration: none;
+            letter-spacing: -0.017em;
+        }
+
+        .nav-links {
+            display: none;
+            gap: 2rem;
+            align-items: center;
+            list-style: none;
+        }
+
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+        }
+
+        .nav-link {
+            color: #475569;
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-link:hover {
+            color: #1e293b;
+        }
+
+        .nav-link:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+            border-radius: 0.375rem;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #475569;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+
+        /* Button Styles */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .btn:focus {
+            outline: 2px solid #3b82f6;
+            outline-offset: 2px;
+        }
+
+        .btn-primary {
+            background-color: #2563eb;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 0.375rem;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: #f1f5f9;
+            color: #1e293b;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 0.375rem;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        }
+
+        .btn-secondary:hover {
+            background-color: #e2e8f0;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-lg {
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            border-radius: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, #f8fafc, #ffffff);
+        }
+
+        @media (min-width: 1024px) {
+            .hero {
+                padding: 6rem 0;
+            }
+        }
+
+        .hero-content {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            letter-spacing: -0.027em;
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-text h1 {
+                font-size: 3rem;
+                line-height: 1.1;
+                letter-spacing: -0.031em;
+            }
+        }
+
+        .hero-text p {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            letter-spacing: -0.011em;
+            color: #475569;
+            margin-bottom: 2rem;
+        }
+
+        .hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 4rem 0;
+        }
+
+        @media (min-width: 1024px) {
+            .section {
+                padding: 6rem 0;
+            }
+        }
+
+        .section-bg-gray {
+            background-color: #f8fafc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-header h2 {
+            font-size: 1.875rem;
+            line-height: 2.25rem;
+            letter-spacing: -0.024em;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+        }
+
+        @media (min-width: 768px) {
+            .section-header h2 {
+                font-size: 2.25rem;
+                line-height: 2.5rem;
+                letter-spacing: -0.027em;
+            }
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            color: #475569;
+        }
+
+        /* Unifying Vision Section */
+        .vision-content {
+            display: grid;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        @media (min-width: 1024px) {
+            .vision-content {
+                grid-template-columns: 1fr 1fr;
+                gap: 4rem;
+            }
+        }
+
+        .vision-text {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .vision-text h3 {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            letter-spacing: -0.021em;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .vision-text p {
+            font-size: 1rem;
+            line-height: 1.5rem;
+            color: #475569;
+        }
+
+        .vision-image {
+            width: 100%;
+            height: auto;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Benefits Grid */
+        .benefits-grid {
+            display: grid;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (min-width: 768px) {
+            .benefits-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .benefit-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+            transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .benefit-card:hover {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .benefit-icon {
+            width: 3rem;
+            height: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #dbeafe, #eff6ff);
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            color: #2563eb;
+        }
+
+        .benefit-card h3 {
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            letter-spacing: -0.017em;
+            font-weight: 600;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+        }
+
+        .benefit-card p {
+            font-size: 0.875rem;
+            line-height: 1.25rem;
+            color: #475569;
+        }
+
+        /* Trust Section */
+        .trust-content {
+            text-align: center;
+        }
+
+        .trust-image {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            margin: 3rem auto 0;
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+        }
+
+        .trust-text {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
+        /* Final Callout */
+        .callout {
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: #ffffff;
+            text-align: center;
+            padding: 4rem 2rem;
+            border-radius: 1rem;
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+
+        .callout h2 {
+            font-size: 2.25rem;
+            line-height: 2.5rem;
+            letter-spacing: -0.027em;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (min-width: 768px) {
+            .callout h2 {
+                font-size: 3rem;
+                line-height: 1.1;
+            }
+        }
+
+        .callout p {
+            font-size: 1.125rem;
+            line-height: 1.75rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn-white {
+            background-color: #ffffff;
+            color: #2563eb;
+            padding: 0.75rem 1.5rem;
+            font-size: 1.125rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-white:hover {
+            background-color: #f8fafc;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #0f172a;
+            color: #94a3b8;
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            list-style: none;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-link {
+            color: #94a3b8;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .footer-link:hover {
+            color: #ffffff;
+        }
+
+        .footer-text {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+
+        /* Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(15, 23, 42, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal {
+            background-color: #ffffff;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-width: 42rem;
+            width: 100%;
+            position: relative;
+            animation: scaleIn 200ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.95);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-header h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f172a;
+        }
+
+        .modal-close {
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+            color: #475569;
+            transition: color 200ms;
+        }
+
+        .modal-close:hover {
+            color: #0f172a;
+        }
+
+        .modal-body {
+            aspect-ratio: 16 / 9;
+            background-color: #0f172a;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+        }
+
+        .video-placeholder {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        /* Accessibility */
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+
+        /* Reduced Motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+        <div class="container">
+            <div class="nav-content">
+                <a href="#" class="nav-logo" aria-label="Synthetic Research Platform Home">
+                    SynthResearch
+                </a>
+                
+                <ul class="nav-links">
+                    <li><a href="#" class="nav-link">Home</a></li>
+                    <li><a href="#platform" class="nav-link">Platform</a></li>
+                    <li><a href="#demo" class="btn btn-primary">Request a Demo</a></li>
+                </ul>
+
+                <button class="mobile-menu-btn" aria-label="Open menu" aria-expanded="false">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" aria-labelledby="hero-heading">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 id="hero-heading">
+                        Revolutionary Research in a Stateful Simulation Environment
+                    </h1>
+                    <p>
+                        Transform your research workflow with the world's first platform that seamlessly bridges qualitative depth and quantitative scale—all within a single, persistent simulation environment.
+                    </p>
+                    <div class="hero-ctas">
+                        <a href="#demo" class="btn btn-primary btn-lg">
+                            Request a Demo
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                <polyline points="12 5 19 12 12 19"></polyline>
+                            </svg>
+                        </a>
+                        <button class="btn btn-secondary btn-lg" id="openVideoBtn">
+                            See Platform Overview
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                <div>
+                    <img 
+                        src="synthetic-research-platform/index/images/hero-simulation-environment.png" 
+                        alt="Stateful simulation environment interface showing research workflow" 
+                        class="hero-image"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Unifying Vision -->
+    <section class="section section-bg-gray" id="platform" aria-labelledby="vision-heading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="vision-heading">The Unifying Vision</h2>
+                <p>
+                    Bridge the gap between exploratory qualitative research and rigorous quantitative validation
+                </p>
+            </div>
+            <div class="vision-content">
+                <div class="vision-text">
+                    <div>
+                        <h3>From Deep Exploration to Statistical Validation</h3>
+                        <p>
+                            Traditional research forces you to choose: deep qualitative insights or broad quantitative data. Our platform eliminates this false dichotomy.
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            Start with rich, contextual conversations to uncover hidden patterns and user motivations. Then, seamlessly transition to statistically significant surveys—all within the same persistent simulation environment where synthetic participants retain context and history.
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            This isn't just faster research. It's fundamentally better research—maintaining continuity, context, and depth throughout your entire discovery process.
+                        </p>
+                    </div>
+                </div>
+                <div>
+                    <img 
+                        src="synthetic-research-platform/index/images/benefits-qual-quant-unification.png" 
+                        alt="Visual representation of qualitative and quantitative research unification" 
+                        class="vision-image"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Benefits Showcase -->
+    <section class="section" aria-labelledby="benefits-heading">
+        <div class="container">
+            <div class="section-header">
+                <h2 id="benefits-heading">Core Benefits</h2>
+                <p>
+                    Experience the power of unified research methodology
+                </p>
+            </div>
+            <div class="benefits-grid">
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                    </div>
+                    <h3>Deep Qualitative Insights</h3>
+                    <p>
+                        Conduct rich, contextual interviews with synthetic participants that exhibit realistic behaviors, motivations, and decision-making patterns. Uncover the "why" behind user actions.
+                    </p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="20" x2="18" y2="10"></line>
+                            <line x1="12" y1="20" x2="12" y2="4"></line>
+                            <line x1="6" y1="20" x2="6" y2="14"></line>
+                        </svg>
+                    </div>
+                    <h3>Statistical Quantitative Validation</h3>
+                    <p>
+                        Scale your insights instantly with surveys reaching hundreds or thousands of synthetic participants. Achieve statistical significance without sacrificing speed or budget.
+                    </p>
+                </article>
+
+                <article class="benefit-card">
+                    <div class="benefit-icon" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>Single Stateful Environment</h3>
+                    <p>
+                        Your research maintains continuity. Participants remember previous interactions, allowing you to build on insights progressively without losing context or starting from scratch.
+                    </p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust & Authority -->
+    <section class="section section-bg-gray" aria-labelledby="trust-heading">
+        <div class="container">
+            <div class="trust-content">
+                <div class="section-header">
+                    <h2 id="trust-heading">Trusted by Leading Research Organizations</h2>
+                    <p>
+                        Organizations worldwide are revolutionizing their research methodology with synthetic user research
+                    </p>
+                </div>
+                <img 
+                    src="synthetic-research-platform/index/images/authority-trust-concept.png" 
+                    alt="Logos of leading research organizations and enterprises using synthetic research methodology" 
+                    class="trust-image"
+                />
+                <p class="trust-text">
+                    Join innovative teams at top enterprises and research firms who have transformed their user research process
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Callout -->
+    <section class="section" aria-labelledby="callout-heading">
+        <div class="container">
+            <div class="callout">
+                <h2 id="callout-heading">Ready to Transform Your Research?</h2>
+                <p>
+                    Explore the full platform capabilities and see how stateful simulation environments can revolutionize your research workflow.
+                </p>
+                <a href="#platform" class="btn btn-white btn-lg">
+                    Explore Platform Features
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <ul class="footer-links">
+                    <li><a href="#" class="footer-link">About</a></li>
+                    <li><a href="#" class="footer-link">Platform</a></li>
+                    <li><a href="#" class="footer-link">Resources</a></li>
+                    <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                    <li><a href="#" class="footer-link">Terms of Service</a></li>
+                    <li><a href="#" class="footer-link">Contact</a></li>
+                </ul>
+                <p class="footer-text">
+                    &copy; 2024 Synthetic Research Platform. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal -->
+    <div class="modal-overlay" id="videoModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modal-title">Platform Overview</h3>
+                <button class="modal-close" id="closeModalBtn" aria-label="Close modal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="video-placeholder">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    <p>Platform Overview Video</p>
+                    <p style="font-size: 0.875rem; opacity: 0.7;">(Video placeholder - replace with actual video embed)</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Video Modal Functionality
+        const videoModal = document.getElementById('videoModal');
+        const openVideoBtn = document.getElementById('openVideoBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+
+        function openModal() {
+            videoModal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            // Focus trap for accessibility
+            closeModalBtn.focus();
+        }
+
+        function closeModal() {
+            videoModal.classList.remove('active');
+            document.body.style.overflow = '';
+            openVideoBtn.focus();
+        }
+
+        openVideoBtn.addEventListener('click', openModal);
+        closeModalBtn.addEventListener('click', closeModal);
+        
+        // Close modal when clicking overlay
+        videoModal.addEventListener('click', function(e) {
+            if (e.target === videoModal) {
+                closeModal();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && videoModal.classList.contains('active')) {
+                closeModal();
+            }
+        });
+
+        // Mobile menu toggle (basic implementation)
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        mobileMenuBtn.addEventListener('click', function() {
+            const expanded = this.getAttribute('aria-expanded') === 'true';
+            this.setAttribute('aria-expanded', !expanded);
+            // In a production environment, you'd show/hide a mobile menu here
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (href !== '#' && document.querySelector(href)) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    const offsetTop = target.offsetTop - 64; // Account for sticky nav height
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
